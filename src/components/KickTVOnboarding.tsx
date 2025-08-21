@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ProgressBar } from './ProgressBar';
 import { PackageSelection } from './PackageSelection';
 import { AdditionalScreensStep } from './AdditionalScreensStep';
