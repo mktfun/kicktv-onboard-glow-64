@@ -92,7 +92,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   const totalSteps = 6;
 
-  // Auto-navigation effect
+  // Auto-navigation effect - CORRIGIDO
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
@@ -104,16 +104,13 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
         // For Ultra plans, skip additional screens and go to duration
         timer = setTimeout(() => setCurrentStep(3), 250);
       }
-    } else if (currentStep === 2) {
-      // After setting additional screens, go to duration
-      timer = setTimeout(() => setCurrentStep(3), 250);
     } else if (currentStep === 3 && selectedDuration) {
       // After duration selection, go to summary
       timer = setTimeout(() => setCurrentStep(4), 250);
     }
 
     return () => clearTimeout(timer);
-  }, [currentStep, selectedPackage, selectedDuration, additionalScreens]);
+  }, [currentStep, selectedPackage, selectedDuration]);
 
   const getSelectedPackage = () => packages.find(p => p.id === selectedPackage);
   const getSelectedDuration = () => durations.find(d => d.id === selectedDuration);
