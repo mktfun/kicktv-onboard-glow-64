@@ -35,7 +35,8 @@ const packages: Package[] = [
     benefits: [
       'Acesso completo a canais, filmes e séries',
       '1 Tela inclusa',
-      'Tecnologia híbrida (IPTV + P2P)'
+      'Tecnologia híbrida (IPTV + P2P)',
+      '+ R$15 por tela adicional'
     ],
     tooltip: 'Nosso plano Essencial combina IPTV, a transmissão direta do servidor para sua TV, com a tecnologia P2P, que distribui o sinal entre os usuários para garantir mais estabilidade em grandes eventos, como jogos de futebol.'
   },
@@ -49,26 +50,14 @@ const packages: Package[] = [
       'Tudo do Essencial, e mais...',
       'Catálogo Nexus com milhares de títulos On-Demand',
       'Estabilidade superior com Anti-Freeze Tech',
-      '1 Tela inclusa'
+      '1 Tela inclusa',
+      '+ R$15 por tela adicional'
     ],
     tooltip: 'O plano Premium libera o Nexus, nosso acervo de conteúdo On-Demand com mais de 90.000 filmes e séries atualizados diariamente, além de tecnologia que evita travamentos.'
   },
   {
-    id: 'whot',
-    name: 'Whot',
-    description: 'Acesso irrestrito ao conteúdo adulto',
-    basePrice: 25,
-    allowsAdditionalScreens: false,
-    benefits: [
-      'Acesso irrestrito ao conteúdo adulto',
-      'Discreto e protegido',
-      '1 Tela (não permite adicionar mais)'
-    ],
-    tooltip: 'Um plano exclusivo para maiores de 18 anos, com acesso total aos canais e vídeos do nosso catálogo adulto "Whot".'
-  },
-  {
     id: 'ultra',
-    name: 'Ultra',
+    name: 'Ultra Krator+',
     description: 'A experiência definitiva',
     basePrice: 40,
     allowsAdditionalScreens: false,
@@ -76,7 +65,7 @@ const packages: Package[] = [
       'Acesso via app exclusivo Krator+',
       'Interface premium e organizada',
       'Conteúdo Adulto (Whot) incluso',
-      '1 Tela (não permite adicionar mais)'
+      '1 Tela (preço fixo, sem extras)'
     ],
     tooltip: 'A experiência definitiva. O plano Ultra te dá acesso através do aplicativo Krator+, conhecido pela sua interface moderna e facilidade de uso em qualquer Smart TV, além de todo o conteúdo adulto já incluso.'
   }
