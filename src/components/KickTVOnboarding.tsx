@@ -430,27 +430,34 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       </div>
       
       <div className="max-w-4xl mx-auto">
-        {renderStep()}
-        
+        <AnimatePresence mode="wait">
+          {renderStep()}
+        </AnimatePresence>
+
         {currentStep >= 2 && currentStep < 6 && (
-          <div className="flex justify-between items-center mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            className="flex justify-between items-center mt-12"
+          >
             <Button
               onClick={prevStep}
               variant="outline"
-              className="px-6 py-3"
+              className="px-6 py-3 hover:scale-105 transition-transform duration-200"
             >
               {currentStep === 2 && onBackToLanding ? "← Voltar ao Início" : "Voltar"}
             </Button>
-            
+
             {(currentStep === 3 || currentStep === 4) && (
               <Button
                 onClick={nextStep}
-                className="px-8 py-3 rounded-xl"
+                className="px-8 py-3 rounded-xl hover:scale-105 transition-transform duration-200"
               >
                 Continuar
               </Button>
             )}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
