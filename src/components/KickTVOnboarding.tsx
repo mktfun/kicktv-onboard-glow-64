@@ -464,7 +464,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               variant="outline"
               className="px-6 py-3 hover:scale-105 transition-transform duration-200"
             >
-              {currentStep === 2 && onBackToLanding ? "← Voltar ao Início" : "Voltar"}
+              {currentStep === 1 && onBackToLanding ? "← Voltar ao Início" : "Voltar"}
             </Button>
 
             {(currentStep === 3 || currentStep === 4) && (
