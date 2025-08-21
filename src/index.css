@@ -92,6 +92,11 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Fix 2: Travar scroll do body quando modal estiver aberto */
+  body.modal-open {
+    overflow: hidden;
+  }
 }
 
 @layer components {
