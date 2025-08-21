@@ -10,6 +10,20 @@ import { Button } from "./ui/button";
 export const LandingPage = () => {
   const [showFunnel, setShowFunnel] = useState(false);
 
+  // Fix 2: Controlar scroll do body quando modal aberto
+  useEffect(() => {
+    if (showFunnel) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    // Limpa a classe quando o componente é desmontado
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [showFunnel]);
+
   const handleStartFunnel = () => {
     setShowFunnel(true);
   };
