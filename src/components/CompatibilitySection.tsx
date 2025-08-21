@@ -1,30 +1,205 @@
 import { motion } from "framer-motion";
-import { Tv, Laptop, Smartphone } from "lucide-react";
+import { Play } from "lucide-react";
+
+// Componente do Mockup da Smart TV
+const TVMockup = () => (
+  <div className="relative w-full h-full">
+    {/* TV Frame */}
+    <div className="bg-gray-900 rounded-lg p-2 shadow-2xl">
+      {/* TV Screen */}
+      <div className="bg-black rounded aspect-video relative overflow-hidden">
+        {/* Simulated TV Content */}
+        <div className="absolute inset-0 bg-gradient-to-br from-kick-green/20 to-kick-green/5">
+          <div className="p-3">
+            {/* Top Bar */}
+            <div className="flex justify-between items-center mb-2">
+              <div className="text-white text-xs font-bold">KICK TV</div>
+              <div className="text-white text-xs">20:30</div>
+            </div>
+
+            {/* Channel Grid */}
+            <div className="grid grid-cols-3 gap-1">
+              {Array.from({length: 6}).map((_, i) => (
+                <div key={i} className="bg-gray-800/60 rounded aspect-video relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Play className="w-3 h-3 text-kick-green" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Live indicator */}
+        <div className="absolute top-2 right-2">
+          <div className="flex items-center space-x-1 bg-red-600 rounded-full px-2 py-1">
+            <div className="w-1 h-1 bg-white rounded-full animate-pulse"></div>
+            <span className="text-white text-xs font-bold">AO VIVO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* TV Stand */}
+    <div className="flex justify-center mt-1">
+      <div className="w-8 h-2 bg-gray-700 rounded-full"></div>
+    </div>
+  </div>
+);
+
+// Componente do Mockup do MacBook
+const LaptopMockup = () => (
+  <div className="relative w-full h-full">
+    {/* MacBook Body */}
+    <div className="bg-gray-300 rounded-t-xl p-2 shadow-2xl">
+      {/* Screen */}
+      <div className="bg-black rounded-t-lg aspect-video relative overflow-hidden">
+        {/* Browser Chrome */}
+        <div className="bg-gray-700 px-2 py-1 flex items-center space-x-1">
+          <div className="flex space-x-1">
+            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          </div>
+          <div className="flex-1 bg-gray-600 rounded text-xs text-gray-300 px-2 py-1 ml-2">
+            kick.tv
+          </div>
+        </div>
+
+        {/* App Content */}
+        <div className="bg-gradient-to-br from-kick-green/10 to-black p-2 h-full">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-2">
+            <div className="text-kick-green text-xs font-bold">KICK TV</div>
+            <div className="text-gray-400 text-xs">Canais • Filmes • Séries</div>
+          </div>
+
+          {/* Channel List */}
+          <div className="space-y-1">
+            {Array.from({length: 4}).map((_, i) => (
+              <div key={i} className="flex items-center space-x-2 bg-gray-800/40 rounded p-1">
+                <div className="w-8 h-5 bg-kick-green/30 rounded flex items-center justify-center">
+                  <Play className="w-2 h-2 text-kick-green" />
+                </div>
+                <div className="flex-1">
+                  <div className="w-12 h-1 bg-gray-600 rounded"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* MacBook Base */}
+    <div className="bg-gray-300 h-1 rounded-b-xl"></div>
+  </div>
+);
+
+// Componente do Mockup do iPhone
+const iPhoneMockup = () => (
+  <div className="relative w-full h-full flex justify-center">
+    {/* iPhone Body */}
+    <div className="bg-gray-900 rounded-[1.5rem] p-1 shadow-2xl w-20 h-full">
+      {/* Screen */}
+      <div className="bg-black rounded-[1.25rem] relative overflow-hidden h-full">
+        {/* Notch */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-gray-900 rounded-b-lg z-10"></div>
+
+        {/* App Content */}
+        <div className="bg-gradient-to-b from-kick-green/10 to-black p-2 h-full pt-4">
+          {/* Status Bar */}
+          <div className="flex justify-between items-center mb-2 text-white text-xs">
+            <div>9:41</div>
+            <div className="flex space-x-1">
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+            </div>
+          </div>
+
+          {/* App Interface */}
+          <div className="text-center mb-2">
+            <div className="text-kick-green text-xs font-bold">KICK</div>
+          </div>
+
+          {/* Vertical Content (Stories style) */}
+          <div className="space-y-2">
+            {Array.from({length: 3}).map((_, i) => (
+              <div key={i} className="bg-gray-800/60 rounded aspect-video relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Play className="w-3 h-3 text-kick-green" />
+                </div>
+                <div className="absolute bottom-1 left-1 right-1">
+                  <div className="w-full h-0.5 bg-gray-600 rounded"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Componente do Mockup do Android
+const AndroidMockup = () => (
+  <div className="relative w-full h-full flex justify-center">
+    {/* Android Body */}
+    <div className="bg-gray-800 rounded-2xl p-1 shadow-2xl w-20 h-full">
+      {/* Screen */}
+      <div className="bg-black rounded-xl relative overflow-hidden h-full">
+        {/* App Content */}
+        <div className="bg-gradient-to-b from-kick-green/10 to-black p-2 h-full">
+          {/* Status Bar */}
+          <div className="flex justify-between items-center mb-2 text-white text-xs">
+            <div>21:30</div>
+            <div>100%</div>
+          </div>
+
+          {/* Kids Interface */}
+          <div className="text-center mb-2">
+            <div className="text-kick-green text-xs font-bold">KICK KIDS</div>
+          </div>
+
+          {/* Kids Content Grid */}
+          <div className="grid grid-cols-2 gap-1">
+            {Array.from({length: 4}).map((_, i) => (
+              <div key={i} className="bg-gradient-to-br from-yellow-400/20 to-pink-400/20 rounded aspect-square relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-kick-green/30 rounded-full flex items-center justify-center">
+                    <Play className="w-2 h-2 text-kick-green" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const devices = [
   {
     name: "Smart TV",
-    icon: Tv,
     description: "Assista na sua Smart TV",
-    mockup: "TV com interface do app e jogo de futebol passando"
+    component: TVMockup
   },
   {
-    name: "Computador", 
-    icon: Laptop,
+    name: "Computador",
     description: "No seu laptop ou desktop",
-    mockup: "MacBook com grade de canais sendo rolada"
+    component: LaptopMockup
   },
   {
     name: "iPhone",
-    icon: Smartphone,
     description: "No seu iPhone",
-    mockup: "iPhone com stories vertical de filmes"
+    component: iPhoneMockup
   },
   {
     name: "Android",
-    icon: Smartphone, 
     description: "No seu Android",
-    mockup: "Samsung com interface kids e desenhos"
+    component: AndroidMockup
   }
 ];
 
@@ -40,13 +215,13 @@ export const CompatibilitySection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Funciona em <span className="text-primary">tudo</span> que você já tem
+            Funciona em <span className="text-kick-green">tudo</span> que você já tem
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Não importa o dispositivo. A Kick TV se adapta perfeitamente à sua rotina.
           </p>
         </motion.div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {devices.map((device, index) => (
             <motion.div
@@ -58,27 +233,16 @@ export const CompatibilitySection = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group cursor-pointer"
             >
-              <div className="bg-card border border-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/20 text-center h-full">
-                <div className="aspect-[4/3] bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl mb-6 overflow-hidden border border-border relative group-hover:border-primary/20 transition-colors duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/20 rounded-full mb-3">
-                        <device.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <p className="text-sm text-muted-foreground font-medium">
-                        {device.mockup}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Simulated video overlay */}
-                  <div className="absolute top-2 right-2 w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+              <div className="bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full">
+                {/* Device Mockup Container */}
+                <div className="h-32 mb-6 relative group-hover:scale-105 transition-transform duration-300">
+                  <device.component />
                 </div>
-                
-                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+
+                <h3 className="text-lg font-bold mb-2 group-hover:text-kick-green transition-colors duration-300">
                   {device.name}
                 </h3>
-                
+
                 <p className="text-sm text-muted-foreground">
                   {device.description}
                 </p>
@@ -86,7 +250,7 @@ export const CompatibilitySection = () => {
             </motion.div>
           ))}
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
