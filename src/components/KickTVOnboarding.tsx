@@ -191,7 +191,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     const transition = { duration: 0.25, ease: "easeOut" };
 
     switch (currentStep) {
-      case 2:
+      case 1:
         return (
           <motion.div
             key="package-selection"
