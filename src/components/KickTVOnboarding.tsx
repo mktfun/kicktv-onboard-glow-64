@@ -344,7 +344,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
             className="space-y-6"
           >
             <h2 className="text-3xl font-bold text-center text-kick-green">Seu Plano Ideal está pronto!</h2>
-            <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-lg">
+            <div className="bg-card border border-border rounded-xl p-8 space-y-4 shadow-2xl shadow-kick-green/10 glow-green">
               <div className="flex justify-between items-center">
                 <span className="text-foreground">Plano:</span>
                 <span className="text-kick-green font-semibold">{getSelectedPackage()?.name} (1 Tela)</span>
