@@ -1,5 +1,6 @@
+import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { MessageCircle, Shield, Clock } from 'lucide-react';
+import { MessageCircle, Shield, Clock, CheckCircle } from 'lucide-react';
 
 interface PaymentStepProps {
   packageName: string;
