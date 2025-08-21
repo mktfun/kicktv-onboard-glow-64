@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Kick TV Dark Theme Design System */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Kick TV Vibrant Green */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 12%;
+    --input: 240 6% 12%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Kick TV Specific Design Tokens */
+    --kick-green: 142 76% 36%;
+    --kick-green-dark: 142 76% 30%;
+    --kick-green-light: 142 76% 42%;
+    --kick-dark: 240 10% 6%;
+    --kick-darker: 0 0% 0%;
+    --kick-gray: 240 5% 64%;
+    --kick-light: 0 0% 98%;
+
+    /* Gradients */
+    --gradient-kick: linear-gradient(135deg, hsl(var(--kick-green)), hsl(var(--kick-green-light)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--kick-darker)), hsl(var(--kick-dark)));
+
+    /* Shadows */
+    --shadow-kick: 0 10px 30px -10px hsl(var(--kick-green) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--kick-green) / 0.2);
+
+    /* Animations */
+    --transition-kick: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 64%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 12%;
+    --input: 240 6% 12%;
+    --ring: 142 76% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
