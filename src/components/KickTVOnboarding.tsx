@@ -83,13 +83,13 @@ interface KickTVOnboardingProps {
 }
 
 export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(1);
   const [selectedPackage, setSelectedPackage] = useState<string>('');
   const [hasAdultContent, setHasAdultContent] = useState(false);
   const [additionalScreens, setAdditionalScreens] = useState(0);
   const [selectedDuration, setSelectedDuration] = useState<string>('');
 
-  const totalSteps = 5;
+  const totalSteps = 6;
 
   // Auto-navigation effect
   useEffect(() => {
