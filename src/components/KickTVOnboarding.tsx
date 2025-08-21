@@ -452,7 +452,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
           {renderStep()}
         </AnimatePresence>
 
-        {currentStep >= 2 && currentStep < 6 && (
+        {currentStep >= 1 && currentStep < 6 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
