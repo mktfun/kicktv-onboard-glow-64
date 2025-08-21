@@ -41,8 +41,8 @@ export const PackageSelection = ({
             whileTap={{ scale: 0.98 }}
             className={`relative bg-card border-2 rounded-2xl p-8 cursor-pointer transition-all duration-200 ${
               selectedPackage === pkg.id
-                ? 'border-kick-green shadow-2xl shadow-kick-green/20 bg-gradient-to-br from-kick-green/5 to-transparent'
-                : 'border-border hover:border-kick-green/50 hover:shadow-xl hover:shadow-kick-green/10'
+                ? 'card-selected border-gradient-animated'
+                : 'border-border card-hover'
             }`}
             onClick={() => onSelectPackage(pkg.id)}
           >
