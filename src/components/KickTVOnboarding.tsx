@@ -94,31 +94,25 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   // Auto-navigation effect
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    
-    if (currentStep === 2 && selectedPackage) {
+
+    if (currentStep === 1 && selectedPackage) {
       const pkg = getSelectedPackage();
       if (pkg?.allowsAdditionalScreens) {
-        timer = setTimeout(() => setCurrentStep(3), 300);
+        timer = setTimeout(() => setCurrentStep(2), 250);
       } else {
-        // For Whot and Ultra plans, skip additional screens and go to duration
-        timer = setTimeout(() => setCurrentStep(3), 300);
+        // For Ultra plans, skip additional screens and go to duration
+        timer = setTimeout(() => setCurrentStep(3), 250);
       }
+    } else if (currentStep === 2) {
+      // After setting additional screens, go to duration
+      timer = setTimeout(() => setCurrentStep(3), 250);
     } else if (currentStep === 3 && selectedDuration) {
-      const pkg = getSelectedPackage();
-      if (pkg?.allowsAdditionalScreens) {
-        // If package allows additional screens, we already had screens step, so go to summary
-        timer = setTimeout(() => setCurrentStep(5), 300);
-      } else {
-        // For Whot and Ultra plans, go to summary after duration selection
-        timer = setTimeout(() => setCurrentStep(4), 300);
-      }
-    } else if (currentStep === 4 && selectedDuration) {
-      // For packages that allow additional screens, go to summary after duration selection
-      timer = setTimeout(() => setCurrentStep(5), 300);
+      // After duration selection, go to summary
+      timer = setTimeout(() => setCurrentStep(4), 250);
     }
 
     return () => clearTimeout(timer);
-  }, [currentStep, selectedPackage, selectedDuration]);
+  }, [currentStep, selectedPackage, selectedDuration, additionalScreens]);
 
   const getSelectedPackage = () => packages.find(p => p.id === selectedPackage);
   const getSelectedDuration = () => durations.find(d => d.id === selectedDuration);
