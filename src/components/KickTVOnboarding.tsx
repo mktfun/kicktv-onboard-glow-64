@@ -444,7 +444,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   return (
     <div className="bg-background text-foreground">
       <div className="mb-8">
-        <ProgressBar currentStep={currentStep - 1} totalSteps={totalSteps} />
+        <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       </div>
       
       <div className="max-w-4xl mx-auto">
