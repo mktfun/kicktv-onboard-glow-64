@@ -156,17 +156,17 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   };
 
   const prevStep = () => {
-    if (currentStep === 2 && onBackToLanding) {
+    if (currentStep === 1 && onBackToLanding) {
       // If we're on the first step of the funnel and have a callback, go back to landing
       onBackToLanding();
       return;
     }
-    
-    if (currentStep > 2) {
+
+    if (currentStep > 1) {
       // Reset auto-navigation selections when going back
-      if (currentStep === 3) {
+      if (currentStep === 2) {
         setSelectedPackage('');
-      } else if (currentStep === 5) {
+      } else if (currentStep === 4) {
         setSelectedDuration('');
       }
       setCurrentStep(currentStep - 1);
@@ -175,9 +175,9 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   const canProceedFromStep = (step: number) => {
     switch (step) {
-      case 2: return !!selectedPackage;
+      case 1: return !!selectedPackage;
+      case 2: return true; // Additional screens can be 0
       case 3: return !!selectedDuration;
-      case 4: return !!selectedDuration;
       default: return true;
     }
   };
