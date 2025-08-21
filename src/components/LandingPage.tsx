@@ -83,8 +83,8 @@ export const LandingPage = () => {
 
               {/* Funnel Content Container */}
               <div className="flex-1 overflow-y-auto">
-                <div className="container mx-auto max-w-6xl px-4 pb-20">
-                  <div className="text-center mb-12">
+                <div className="container mx-auto max-w-6xl px-4 py-16 pb-24">
+                  <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                       Chega de papo. <span className="text-kick-green">Monte seu plano</span> em 2 minutos.
                     </h2>
