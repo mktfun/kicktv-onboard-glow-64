@@ -31,20 +31,30 @@ export const PackageSelection = ({
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-        {packages.map((pkg) => (
-          <div
+        {packages.map((pkg, index) => (
+          <motion.div
             key={pkg.id}
-            className={`relative bg-card border-2 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:scale-105 ${
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+            whileHover={{ y: -5, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className={`relative bg-card border-2 rounded-2xl p-8 cursor-pointer transition-all duration-200 ${
               selectedPackage === pkg.id
-                ? 'border-kick-green shadow-lg shadow-kick-green/20'
-                : 'border-border hover:border-kick-green/50'
+                ? 'border-kick-green shadow-2xl shadow-kick-green/20 bg-gradient-to-br from-kick-green/5 to-transparent'
+                : 'border-border hover:border-kick-green/50 hover:shadow-xl hover:shadow-kick-green/10'
             }`}
             onClick={() => onSelectPackage(pkg.id)}
           >
             {selectedPackage === pkg.id && (
-              <div className="absolute -top-3 -right-3 bg-kick-green rounded-full p-2">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.2, type: "spring" }}
+                className="absolute -top-3 -right-3 bg-kick-green rounded-full p-2"
+              >
                 <Check className="w-4 h-4 text-background" />
-              </div>
+              </motion.div>
             )}
             
             {/* Tooltip */}
@@ -91,14 +101,14 @@ export const PackageSelection = ({
                 ))}
               </div>
               
-              <Button 
+              <Button
                 variant={selectedPackage === pkg.id ? "kick" : "kick-outline"}
-                className="w-full"
+                className="w-full hover:scale-105 transition-transform duration-200"
               >
                 {selectedPackage === pkg.id ? "Selecionado" : "Selecionar"}
               </Button>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
