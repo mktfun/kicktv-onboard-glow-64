@@ -127,13 +127,31 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     const duration = getSelectedDuration();
     const pkg = getSelectedPackage();
     if (!duration || !pkg) return 0;
-    
-    const baseMonthlyPrice = pkg.basePrice + (additionalScreens * 15);
-    const adultContentPrice = hasAdultContent ? 20 : 0;
-    const totalMonthlyPrice = baseMonthlyPrice + adultContentPrice;
-    
-    // Apply duration pricing (these are total prices, not monthly)
-    return duration.price + (additionalScreens * 15 * duration.months) + (hasAdultContent ? (20 * duration.months) : 0);
+
+    // Nova lógica de preços conforme especificação
+    let monthlyPrice = pkg.basePrice;
+
+    // Adicionar custo de telas extras (apenas para Essencial e Premium)
+    if (pkg.allowsAdditionalScreens) {
+      monthlyPrice += (additionalScreens * 15);
+    }
+
+    // Adicionar conteúdo adulto (apenas para Essencial e Premium, Ultra já inclui)
+    if (hasAdultContent && (pkg.id === 'essencial' || pkg.id === 'premium')) {
+      monthlyPrice += 20;
+    }
+
+    // Calcular total baseado na duração (duration.price é o preço total para aquela duração)
+    // Para manter compatibilidade, vamos usar a estrutura atual mas aplicar a nova lógica
+    const totalForDuration = monthlyPrice * duration.months;
+
+    // Aplicar desconto baseado na duração
+    let discount = 0;
+    if (duration.id === '3m') discount = 5;
+    else if (duration.id === '6m') discount = 20;
+    else if (duration.id === '12m') discount = 70;
+
+    return totalForDuration - discount;
   };
 
   const nextStep = () => {
