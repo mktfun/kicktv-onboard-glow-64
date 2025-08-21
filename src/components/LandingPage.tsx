@@ -76,16 +76,21 @@ export const LandingPage = () => {
               className="relative z-10 h-full flex flex-col"
             >
               {/* Close Button */}
-              <div className="flex justify-end p-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: 0.4 }}
+                className="flex justify-end p-6"
+              >
                 <Button
                   onClick={handleBackToLanding}
                   variant="ghost"
                   size="icon"
-                  className="h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                  className="h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 text-white transition-all duration-200"
                 >
                   <X className="h-6 w-6" />
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Funnel Content Container */}
               <div className="flex-1 overflow-y-auto">
