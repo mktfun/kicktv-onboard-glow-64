@@ -17,8 +17,15 @@ export const PaymentStep = ({
   additionalScreens
 }: PaymentStepProps) => {
   const generateWhatsAppMessage = () => {
-    const telasText = additionalScreens > 0 ? `, Telas Adicionais - ${additionalScreens}` : '';
-    return `Olá! Montei meu plano ideal no site da Kick TV e quero finalizar a compra. Detalhes: Plano - ${packageName}${telasText}, Total - R$ ${total}`;
+    const telasText = additionalScreens > 0 ? `, ${additionalScreens} tela(s) adicional(is)` : '';
+    const adultoText = hasAdultContent ? ', Conteúdo Adulto incluído' : '';
+    return `🎬 *KICK TV - Novo Pedido*
+
+📦 *Plano:* ${packageName}
+⏱️ *Duração:* ${duration}${telasText}${adultoText}
+💰 *Total:* R$ ${total},00
+
+Gostaria de finalizar minha compra! 🚀`;
   };
 
   const whatsappLink = `https://wa.me/5511956076123?text=${encodeURIComponent(generateWhatsAppMessage())}`;
