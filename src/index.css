@@ -93,3 +93,43 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Kick TV specific component utilities */
+  .card-selected {
+    @apply border-kick-green bg-gradient-to-br from-kick-green/10 to-transparent;
+    box-shadow: 0 0 30px hsl(var(--kick-green) / 0.3), 0 20px 40px -10px hsl(var(--kick-green) / 0.2);
+  }
+
+  .card-hover {
+    @apply hover:shadow-2xl hover:shadow-kick-green/20 hover:border-kick-green/30;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--kick-green) / 0.4);
+  }
+
+  .glow-green-intense {
+    box-shadow: 0 0 40px hsl(var(--kick-green) / 0.6), inset 0 0 20px hsl(var(--kick-green) / 0.1);
+  }
+
+  .border-gradient-animated {
+    position: relative;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(45deg,
+                  hsl(var(--kick-green)),
+                  hsl(var(--kick-green-light)),
+                  hsl(var(--kick-green)),
+                  hsl(var(--kick-green-light))
+                ) border-box;
+    border: 2px solid transparent;
+    animation: gradient-rotate 3s linear infinite;
+  }
+
+  @keyframes gradient-rotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
