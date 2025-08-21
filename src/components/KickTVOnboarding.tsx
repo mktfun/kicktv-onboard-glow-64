@@ -181,50 +181,102 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   };
 
   const renderStep = () => {
+    const stepVariants = {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, y: -20 }
+    };
+
+    const transition = { duration: 0.25, ease: "easeOut" };
+
     switch (currentStep) {
       case 2:
         return (
-          <PackageSelection
-            packages={packages}
-            selectedPackage={selectedPackage}
-            onSelectPackage={setSelectedPackage}
-            hasAdultContent={hasAdultContent}
-            onToggleAdultContent={setHasAdultContent}
-          />
+          <motion.div
+            key="package-selection"
+            variants={stepVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={transition}
+          >
+            <PackageSelection
+              packages={packages}
+              selectedPackage={selectedPackage}
+              onSelectPackage={setSelectedPackage}
+              hasAdultContent={hasAdultContent}
+              onToggleAdultContent={setHasAdultContent}
+            />
+          </motion.div>
         );
       case 3:
         const pkg = getSelectedPackage();
         if (pkg?.allowsAdditionalScreens) {
           return (
-            <AdditionalScreensStep
-              additionalScreens={additionalScreens}
-              onUpdateScreens={setAdditionalScreens}
-            />
+            <motion.div
+              key="additional-screens"
+              variants={stepVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={transition}
+            >
+              <AdditionalScreensStep
+                additionalScreens={additionalScreens}
+                onUpdateScreens={setAdditionalScreens}
+              />
+            </motion.div>
           );
         } else {
           return (
-            <DurationSelection
-              durations={durations}
-              selectedDuration={selectedDuration}
-              onSelectDuration={setSelectedDuration}
-            />
+            <motion.div
+              key="duration-selection-3"
+              variants={stepVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={transition}
+            >
+              <DurationSelection
+                durations={durations}
+                selectedDuration={selectedDuration}
+                onSelectDuration={setSelectedDuration}
+              />
+            </motion.div>
           );
         }
       case 4:
         const selectedPkg = getSelectedPackage();
         if (selectedPkg?.allowsAdditionalScreens) {
           return (
-            <DurationSelection
-              durations={durations}
-              selectedDuration={selectedDuration}
-              onSelectDuration={setSelectedDuration}
-            />
+            <motion.div
+              key="duration-selection-4"
+              variants={stepVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={transition}
+            >
+              <DurationSelection
+                durations={durations}
+                selectedDuration={selectedDuration}
+                onSelectDuration={setSelectedDuration}
+              />
+            </motion.div>
           );
         } else {
           return (
-            <div className="space-y-6">
+            <motion.div
+              key="summary-4"
+              variants={stepVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={transition}
+              className="space-y-6"
+            >
               <h2 className="text-3xl font-bold text-center text-kick-green">Seu Plano Ideal está pronto!</h2>
-              <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+              <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-lg">
                 <div className="flex justify-between items-center">
                   <span className="text-foreground">Plano:</span>
                   <span className="text-kick-green font-semibold">{getSelectedPackage()?.name} (1 Tela)</span>
@@ -277,14 +329,22 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         }
       case 5:
         return (
-          <div className="space-y-6">
+          <motion.div
+            key="summary-5"
+            variants={stepVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={transition}
+            className="space-y-6"
+          >
             <h2 className="text-3xl font-bold text-center text-kick-green">Seu Plano Ideal está pronto!</h2>
-            <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+            <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-lg">
               <div className="flex justify-between items-center">
                 <span className="text-foreground">Plano:</span>
                 <span className="text-kick-green font-semibold">{getSelectedPackage()?.name} (1 Tela)</span>
@@ -337,17 +397,26 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         );
       case 6:
         return (
-          <PaymentStep
-            packageName={getSelectedPackage()?.name || ''}
-            duration={getSelectedDuration()?.label || ''}
-            total={calculateTotal()}
-            hasAdultContent={hasAdultContent}
-            additionalScreens={additionalScreens}
-          />
+          <motion.div
+            key="payment"
+            variants={stepVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={transition}
+          >
+            <PaymentStep
+              packageName={getSelectedPackage()?.name || ''}
+              duration={getSelectedDuration()?.label || ''}
+              total={calculateTotal()}
+              hasAdultContent={hasAdultContent}
+              additionalScreens={additionalScreens}
+            />
+          </motion.div>
         );
       default:
         return null;
