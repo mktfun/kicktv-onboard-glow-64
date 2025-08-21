@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Minus, Plus, Monitor } from 'lucide-react';
 import { Button } from './ui/button';
 
