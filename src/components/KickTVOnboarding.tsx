@@ -91,7 +91,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   const [additionalScreens, setAdditionalScreens] = useState(0);
   const [selectedDuration, setSelectedDuration] = useState<string>('');
 
-  const totalSteps = 4;
+  const totalSteps = 5;
 
   // Auto-navigation effect - CORRIGIDO com debug
   useEffect(() => {
