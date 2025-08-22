@@ -82,7 +82,7 @@ export const AddOnsStep = ({
               )}
               {selectedPackage === 'ultra' && (
                 <p className="text-sm text-muted-foreground">
-                  Conteúdo adulto premium já incluído no seu plano Ultra via <span className="font-semibold">app Nexus exclusivo</span>
+                  Conteúdo adulto premium já incluído no seu plano Ultra via <span className="font-semibold">app Nexus exclusivo (apenas navegador)</span>
                 </p>
               )}
             </div>
