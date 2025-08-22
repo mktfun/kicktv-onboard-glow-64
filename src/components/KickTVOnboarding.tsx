@@ -92,7 +92,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   const totalSteps = 6;
 
-  // Auto-navigation effect - CORRIGIDO
+  // Auto-navigation effect - CORRIGIDO com debug
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
@@ -106,6 +106,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       }
     } else if (currentStep === 3 && selectedDuration) {
       // After duration selection, go to summary
+      console.log('Auto-navegação: Step 3 -> 4, selectedDuration:', selectedDuration);
       timer = setTimeout(() => setCurrentStep(4), 250);
     }
 
