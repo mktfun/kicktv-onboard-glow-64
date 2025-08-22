@@ -64,7 +64,7 @@ export const LandingPage = () => {
   };
 
   return (
-    <main className="relative bg-black min-h-screen">
+    <main className="relative min-h-screen">
       {/* Fundo animado fixo que fica atrás de todo o conteúdo */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
         <AnimatedBackground />
