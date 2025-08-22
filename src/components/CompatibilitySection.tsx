@@ -205,7 +205,7 @@ const devices = [
 
 export const CompatibilitySection = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 relative z-10">
+    <section className="py-8 sm:py-12 lg:py-16 px-4 relative z-10">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
