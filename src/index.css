@@ -276,10 +276,17 @@ All colors MUST be HSL.
     animation-delay: -12s;
   }
 
-  /* Interatividade sutil - as bolhas reagem ao hover na seção */
-  .background-nebula-container:hover .blob {
-    opacity: 0.18;
-    filter: blur(110px);
+  /* Interatividade sutil - as bolhas reagem ao hover */
+  body:hover .background-nebula-container .blob {
+    opacity: 0.12;
+    filter: blur(130px);
+    transition: all 0.8s ease;
+  }
+
+  /* Efeito especial ao interagir com elementos principais */
+  .hero-interaction:hover ~ * .background-nebula-container .blob {
+    opacity: 0.15;
+    filter: blur(120px);
   }
 
   /* Animações que movem as bolhas - MOVIMENTOS MAIS AMPLOS */
