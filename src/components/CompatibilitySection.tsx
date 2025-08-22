@@ -144,9 +144,9 @@ const iPhoneMockup = () => (
 
 // Componente do Mockup do Android
 const AndroidMockup = () => (
-  <div className="relative w-full h-full flex justify-center">
+  <div className="relative w-full aspect-[9/16] flex justify-center">
     {/* Android Body */}
-    <div className="bg-gray-800 rounded-2xl p-1 shadow-2xl w-20 h-full">
+    <div className="bg-gray-800 rounded-2xl p-1 shadow-2xl w-20 h-full max-w-[60px]">
       {/* Screen */}
       <div className="bg-black rounded-xl relative overflow-hidden h-full">
         {/* App Content */}
