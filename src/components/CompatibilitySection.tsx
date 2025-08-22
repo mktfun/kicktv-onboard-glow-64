@@ -222,7 +222,7 @@ export const CompatibilitySection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {devices.map((device, index) => (
             <motion.div
               key={device.name}
@@ -240,17 +240,17 @@ export const CompatibilitySection = () => {
               className="group cursor-pointer"
               style={{ perspective: '1000px' }}
             >
-              <div className="bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full">
+              <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full">
                 {/* Device Mockup Container */}
-                <div className="h-32 mb-6 relative group-hover:scale-105 transition-transform duration-300">
+                <div className="h-20 sm:h-28 lg:h-32 mb-3 sm:mb-4 lg:mb-6 relative group-hover:scale-105 transition-transform duration-300">
                   <device.component />
                 </div>
 
-                <h3 className="text-lg font-bold mb-2 group-hover:text-kick-green transition-colors duration-300">
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 group-hover:text-kick-green transition-colors duration-300">
                   {device.name}
                 </h3>
 
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {device.description}
                 </p>
               </div>
