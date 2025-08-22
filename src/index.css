@@ -216,12 +216,12 @@ All colors MUST be HSL.
     background: transparent; /* Garante fundo transparente */
   }
 
-  /* Estilo base para cada "bolha" de luz - MAIS AGRESSIVO */
+  /* Estilo base para cada "bolha" de luz - SEMPRE ATIVO */
   .blob {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.15; /* Aumentado para ser mais visível */
-    filter: blur(180px); /* Blur ajustado para melhor visibilidade */
+    opacity: 0.25; /* Bem mais visível e sempre ativo */
+    filter: blur(160px); /* Blur reduzido para maior visibilidade */
     will-change: transform;
     transition: opacity 0.3s ease;
   }
@@ -283,15 +283,15 @@ All colors MUST be HSL.
 
   /* Interatividade sutil - as bolhas reagem ao hover */
   body:hover .background-nebula-container .blob {
-    opacity: 0.22;
-    filter: blur(160px);
+    opacity: 0.35;
+    filter: blur(140px);
     transition: all 0.8s ease;
   }
 
   /* Efeito especial ao interagir com elementos principais */
   .hero-interaction:hover ~ * .background-nebula-container .blob {
-    opacity: 0.25;
-    filter: blur(150px);
+    opacity: 0.4;
+    filter: blur(130px);
   }
 
   /* Animações que movem as bolhas - MOVIMENTOS MAIS AMPLOS */
@@ -343,8 +343,8 @@ All colors MUST be HSL.
   /* Responsividade para as bolhas em mobile */
   @media (max-width: 768px) {
     .blob {
-      filter: blur(120px); /* Reduz blur em mobile para performance */
-      opacity: 0.18; /* Aumenta opacidade em mobile para compensar blur menor */
+      filter: blur(110px); /* Reduz blur em mobile para performance */
+      opacity: 0.28; /* Aumenta opacidade em mobile para compensar blur menor */
     }
 
     .blob-1 {
