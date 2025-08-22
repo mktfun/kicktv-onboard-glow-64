@@ -110,13 +110,11 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
         // For Ultra plans, skip additional screens and go to duration
         timer = setTimeout(() => setCurrentStep(3), 250);
       }
+    } else if (currentStep === 3 && selectedDuration) {
+      // After duration selection, go to summary
+      console.log('Auto-navegação: Step 3 -> 4, selectedDuration:', selectedDuration);
+      timer = setTimeout(() => setCurrentStep(4), 250);
     }
-    // Temporariamente desabilitada auto-navegação do step 3
-    // else if (currentStep === 3 && selectedDuration) {
-    //   // After duration selection, go to summary
-    //   console.log('Auto-navegação: Step 3 -> 4, selectedDuration:', selectedDuration);
-    //   timer = setTimeout(() => setCurrentStep(4), 250);
-    // }
 
     return () => clearTimeout(timer);
   }, [currentStep, selectedPackage, selectedDuration]);
