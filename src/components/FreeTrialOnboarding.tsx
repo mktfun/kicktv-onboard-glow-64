@@ -3,27 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { FreeTrialSelection } from "./FreeTrialSelection";
-import { DurationSelection } from "./DurationSelection";
-import { AdditionalScreensStep } from "./AdditionalScreensStep";
-import { FreeTrialAddOns } from "./FreeTrialAddOns";
-import { FreeTrialSummary } from "./FreeTrialSummary";
+import { FreeTrialFinalScreen } from "./FreeTrialFinalScreen";
 
-// Duration interface
-interface Duration {
-  id: string;
-  months: number;
-  label: string;
-  price: number;
-  discount?: string;
-}
-
-// Durations for free trial (showing what they would pay for)
-const durations: Duration[] = [
-  { id: '1m', months: 1, label: '1 mês', price: 35 },
-  { id: '3m', months: 3, label: '3 meses', price: 100, discount: 'Economize R$ 5' },
-  { id: '6m', months: 6, label: '6 meses', price: 190, discount: 'Economize R$ 20' },
-  { id: '12m', months: 12, label: '12 meses', price: 350, discount: 'Economize R$ 70' }
-];
 
 interface FreeTrialOnboardingProps {
   onBackToLanding: () => void;
@@ -32,15 +13,9 @@ interface FreeTrialOnboardingProps {
 export const FreeTrialOnboarding = ({ onBackToLanding }: FreeTrialOnboardingProps) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedPackage, setSelectedPackage] = useState("");
-  const [duration, setDuration] = useState("");
-  const [additionalScreens, setAdditionalScreens] = useState(0);
-  const [hasAdultContent, setHasAdultContent] = useState(false);
 
   const steps = [
     "Plano",
-    "Duração", 
-    "Telas",
-    "Add-ons",
     "Finalizar"
   ];
 
@@ -60,20 +35,11 @@ export const FreeTrialOnboarding = ({ onBackToLanding }: FreeTrialOnboardingProp
     switch (currentStep) {
       case 0:
         return selectedPackage !== "";
-      case 1:
-        return duration !== "";
       default:
         return true;
     }
   };
 
-  const getDurationMonths = () => {
-    if (duration.includes('1 mês')) return 1;
-    if (duration.includes('3 meses')) return 3;
-    if (duration.includes('6 meses')) return 6;
-    if (duration.includes('12 meses')) return 12;
-    return 1;
-  };
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -86,34 +52,8 @@ export const FreeTrialOnboarding = ({ onBackToLanding }: FreeTrialOnboardingProp
         );
       case 1:
         return (
-          <DurationSelection
-            durations={durations}
-            selectedDuration={duration}
-            onSelectDuration={setDuration}
-          />
-        );
-      case 2:
-        return (
-          <AdditionalScreensStep
-            additionalScreens={additionalScreens}
-            onScreensChange={setAdditionalScreens}
-          />
-        );
-      case 3:
-        return (
-          <FreeTrialAddOns
-            hasAdultContent={hasAdultContent}
-            onAdultContentChange={setHasAdultContent}
-          />
-        );
-      case 4:
-        return (
-          <FreeTrialSummary
+          <FreeTrialFinalScreen
             packageName={selectedPackage}
-            duration={duration}
-            additionalScreens={additionalScreens}
-            hasAdultContent={hasAdultContent}
-            durationMonths={getDurationMonths()}
           />
         );
       default:
