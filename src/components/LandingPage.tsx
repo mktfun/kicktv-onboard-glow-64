@@ -117,26 +117,26 @@ export const LandingPage = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2, delay: 0.4 }}
-                className="flex justify-end p-6"
+                className="flex justify-end p-4 sm:p-6"
               >
                 <Button
                   onClick={handleBackToLanding}
                   variant="ghost"
                   size="icon"
-                  className="h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 text-white transition-all duration-200"
+                  className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 text-white transition-all duration-200"
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
                 </Button>
               </motion.div>
 
               {/* Funnel Content Container */}
               <div className="flex-1 overflow-y-auto">
-                <div className="container mx-auto max-w-6xl px-4 py-16 pb-24">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                <div className="container mx-auto max-w-6xl px-4 py-8 sm:py-12 lg:py-16 pb-16 sm:pb-24">
+                  <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white px-2">
                       Chega de papo. <span className="text-kick-green">Monte seu plano</span> em 2 minutos.
                     </h2>
-                    <p className="text-lg text-gray-300">
+                    <p className="text-base sm:text-lg text-gray-300 px-4">
                       Personalize sua experiência e comece a assistir agora mesmo.
                     </p>
                   </div>
