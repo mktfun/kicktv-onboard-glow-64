@@ -301,7 +301,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
           {renderStep()}
         </AnimatePresence>
 
-        {currentStep >= 1 && currentStep < 4 && (
+        {currentStep >= 1 && currentStep < 5 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -316,10 +316,11 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               {currentStep === 1 && onBackToLanding ? "← Voltar ao Início" : "Voltar"}
             </Button>
 
-            {currentStep === 2 && (
+            {(currentStep === 1 || currentStep === 3) && (
               <Button
                 onClick={nextStep}
-                className="px-8 py-3 rounded-xl hover:scale-105 transition-transform duration-200"
+                disabled={!canProceedFromStep(currentStep)}
+                className="px-8 py-3 rounded-xl hover:scale-105 transition-transform duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Continuar
               </Button>
