@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Interactive3DMockup } from "./Interactive3DMockup";
+import { ContainerScroll } from "./ContainerScroll";
+import { KickTVInterface } from "./KickTVInterface";
 
 interface HeroSectionProps {
   onStartFunnel: (event?: React.MouseEvent | React.KeyboardEvent) => void;
