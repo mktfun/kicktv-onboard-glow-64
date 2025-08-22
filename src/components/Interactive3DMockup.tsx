@@ -118,18 +118,18 @@ export const Interactive3DMockup = () => {
                     />
                     
                     <motion.div
-                      animate={{ 
+                      animate={{
                         rotate: [0, 360],
                       }}
-                      transition={{ 
+                      transition={{
                         duration: 4,
                         repeat: Infinity,
                         ease: "linear",
                         delay: i * 0.1,
                       }}
-                      className="w-6 h-6 bg-kick-green/60 rounded-full flex items-center justify-center relative z-10"
+                      className="w-8 h-8 bg-green-500/70 rounded-full flex items-center justify-center relative z-10"
                     >
-                      <div className="w-3 h-3 text-background text-xs">▶</div>
+                      <div className="w-4 h-4 text-black text-sm font-bold">▶</div>
                     </motion.div>
                   </motion.div>
                 ))}
