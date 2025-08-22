@@ -46,8 +46,15 @@ export const BenefitsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{
+                scale: 1.05,
+                rotateX: 5,
+                rotateY: 10,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
               className="text-center group cursor-pointer"
+              style={{ perspective: '1000px' }}
             >
               <div className="bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/20 h-full">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors duration-300">
