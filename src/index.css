@@ -337,28 +337,37 @@ All colors MUST be HSL.
 
   /* Responsividade para as bolhas em mobile */
   @media (max-width: 768px) {
+    .blob {
+      filter: blur(100px); /* Reduz blur em mobile para performance */
+    }
+
     .blob-1 {
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
       top: -100px;
       left: -100px;
     }
 
     .blob-2 {
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
       bottom: -75px;
       right: -75px;
     }
 
     .blob-3 {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
     }
 
     .blob-4 {
-      width: 220px;
-      height: 220px;
+      width: 280px;
+      height: 280px;
+    }
+
+    .blob-5 {
+      width: 180px;
+      height: 180px;
     }
   }
 }
