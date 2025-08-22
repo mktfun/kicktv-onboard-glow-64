@@ -221,7 +221,7 @@ All colors MUST be HSL.
     position: absolute;
     border-radius: 50%;
     opacity: 0.08; /* Reduzido para ser mais sutil */
-    filter: blur(150px); /* Blur muito mais agressivo */
+    filter: blur(200px); /* Blur muito mais agressivo */
     will-change: transform;
     transition: opacity 0.3s ease;
   }
@@ -284,14 +284,14 @@ All colors MUST be HSL.
   /* Interatividade sutil - as bolhas reagem ao hover */
   body:hover .background-nebula-container .blob {
     opacity: 0.12;
-    filter: blur(130px);
+    filter: blur(180px);
     transition: all 0.8s ease;
   }
 
   /* Efeito especial ao interagir com elementos principais */
   .hero-interaction:hover ~ * .background-nebula-container .blob {
     opacity: 0.15;
-    filter: blur(120px);
+    filter: blur(170px);
   }
 
   /* Animações que movem as bolhas - MOVIMENTOS MAIS AMPLOS */
@@ -343,7 +343,7 @@ All colors MUST be HSL.
   /* Responsividade para as bolhas em mobile */
   @media (max-width: 768px) {
     .blob {
-      filter: blur(100px); /* Reduz blur em mobile para performance */
+      filter: blur(130px); /* Reduz blur em mobile para performance */
     }
 
     .blob-1 {
