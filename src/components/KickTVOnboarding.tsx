@@ -93,25 +93,17 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   const totalSteps = 5;
 
-  // Auto-navigation effect - CORRIGIDO com debug
+  // Auto-navigation apenas para duração -> pagamento
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
-    if (currentStep === 1 && selectedPackage) {
-      const pkg = getSelectedPackage();
-      if (pkg?.allowsAdditionalScreens) {
-        timer = setTimeout(() => setCurrentStep(2), 250);
-      } else {
-        // For Ultra plans, skip additional screens and go to duration
-        timer = setTimeout(() => setCurrentStep(3), 250);
-      }
-    } else if (currentStep === 3 && selectedDuration) {
+    if (currentStep === 4 && selectedDuration) {
       // After duration selection, go directly to payment
-      timer = setTimeout(() => setCurrentStep(4), 250);
+      timer = setTimeout(() => setCurrentStep(5), 250);
     }
 
     return () => clearTimeout(timer);
-  }, [currentStep, selectedPackage, selectedDuration]);
+  }, [currentStep, selectedDuration]);
 
   const getSelectedPackage = () => packages.find(p => p.id === selectedPackage);
   const getSelectedDuration = () => durations.find(d => d.id === selectedDuration);
