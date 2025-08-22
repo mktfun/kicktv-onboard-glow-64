@@ -167,8 +167,8 @@ const AndroidMockup = () => (
             {Array.from({length: 4}).map((_, i) => (
               <div key={i} className="bg-gradient-to-br from-yellow-400/20 to-pink-400/20 rounded aspect-square relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-4 h-4 bg-kick-green/30 rounded-full flex items-center justify-center">
-                    <Play className="w-2 h-2 text-kick-green" />
+                  <div className="w-3 sm:w-4 h-3 sm:h-4 bg-kick-green/30 rounded-full flex items-center justify-center">
+                    <Play className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-kick-green" />
                   </div>
                 </div>
               </div>
