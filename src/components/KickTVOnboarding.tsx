@@ -234,41 +234,22 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
           </motion.div>
         );
       case 3:
-        const pkg = getSelectedPackage();
-        if (pkg?.allowsAdditionalScreens) {
-          return (
-            <motion.div
-              key="additional-screens"
-              variants={stepVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={transition}
-            >
-              <AdditionalScreensStep
-                additionalScreens={additionalScreens}
-                onUpdateScreens={setAdditionalScreens}
-              />
-            </motion.div>
-          );
-        } else {
-          return (
-            <motion.div
-              key="duration-selection-3"
-              variants={stepVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={transition}
-            >
-              <DurationSelection
-                durations={durations}
-                selectedDuration={selectedDuration}
-                onSelectDuration={handleSelectDuration}
-              />
-            </motion.div>
-          );
-        }
+        return (
+          <motion.div
+            key="duration-selection"
+            variants={stepVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={transition}
+          >
+            <DurationSelection
+              durations={durations}
+              selectedDuration={selectedDuration}
+              onSelectDuration={handleSelectDuration}
+            />
+          </motion.div>
+        );
       case 4:
         const selectedPkg = getSelectedPackage();
         if (selectedPkg?.allowsAdditionalScreens) {
