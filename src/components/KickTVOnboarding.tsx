@@ -90,12 +90,6 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   const [additionalScreens, setAdditionalScreens] = useState(0);
   const [selectedDuration, setSelectedDuration] = useState<string>('');
 
-  // Debug: wrapper para setSelectedDuration
-  const handleSelectDuration = (durationId: string) => {
-    console.log('Duração selecionada:', durationId);
-    setSelectedDuration(durationId);
-  };
-
   const totalSteps = 5;
 
   // Auto-navigation effect - CORRIGIDO com debug
