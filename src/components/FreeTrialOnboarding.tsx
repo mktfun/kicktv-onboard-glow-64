@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { FreeTrialSelection } from "./FreeTrialSelection";
 import { DurationSelection } from "./DurationSelection";
 import { AdditionalScreensStep } from "./AdditionalScreensStep";
-import { AddOnsStep } from "./AddOnsStep";
+import { FreeTrialAddOns } from "./FreeTrialAddOns";
 import { FreeTrialSummary } from "./FreeTrialSummary";
 
 interface FreeTrialOnboardingProps {
@@ -83,12 +83,9 @@ export const FreeTrialOnboarding = ({ onBackToLanding }: FreeTrialOnboardingProp
         );
       case 3:
         return (
-          <AddOnsStep
+          <FreeTrialAddOns
             hasAdultContent={hasAdultContent}
-            hasWhot={false} // Removido Whot do teste gratuito
             onAdultContentChange={setHasAdultContent}
-            onWhotChange={() => {}} // Função vazia pois não usamos Whot
-            hideWhot={true} // Flag para esconder Whot
           />
         );
       case 4:
