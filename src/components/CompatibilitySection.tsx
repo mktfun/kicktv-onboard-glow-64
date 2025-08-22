@@ -205,19 +205,19 @@ const devices = [
 
 export const CompatibilitySection = () => {
   return (
-    <section className="py-20 px-4 bg-background">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-2">
             Funciona em <span className="text-kick-green">tudo</span> que você já tem
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Não importa o dispositivo. A Kick TV se adapta perfeitamente à sua rotina.
           </p>
         </motion.div>
