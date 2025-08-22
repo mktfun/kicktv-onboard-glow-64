@@ -47,10 +47,10 @@ export const FreeTrialSelection = ({ selectedPackage, onSelectPackage }: FreeTri
         className="text-center"
       >
         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
-          Escolha seu <span className="text-kick-green">Teste Gratuito</span>
+          Escolha seu <span className="text-kick-green">Teste por R$ 5</span>
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-          Experimente nossa plataforma sem compromisso. Selecione o plano que deseja testar.
+          Experimente nossa plataforma por apenas R$ 5,00. Selecione o plano que deseja testar.
         </p>
       </motion.div>
 
@@ -146,7 +146,7 @@ export const FreeTrialSelection = ({ selectedPackage, onSelectPackage }: FreeTri
         className="text-center"
       >
         <p className="text-sm text-gray-400">
-          ⭐ Teste gratuito • Sem cartão de crédito • Ativação imediata
+          ⭐ Teste por R$ 5,00 • PIX ou cartão • Ativação imediata
         </p>
       </motion.div>
     </div>

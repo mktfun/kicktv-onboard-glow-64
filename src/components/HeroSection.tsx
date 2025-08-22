@@ -74,7 +74,7 @@ export const HeroSection = ({ onStartFunnel, onStartFreeTrial }: HeroSectionProp
               className="w-full sm:w-auto inline-block bg-transparent border-2 border-green-500 text-green-500 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transform hover:scale-105 transition-all duration-200 hover:bg-green-500 hover:text-black touch-manipulation select-none"
               style={{ touchAction: 'manipulation' }}
             >
-              TESTE GRATUITO
+              TESTE POR R$ 5
             </motion.button>
           </div>
         </motion.div>

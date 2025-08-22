@@ -23,12 +23,13 @@ export const FreeTrialFinalScreen = ({
   };
 
   const generateWhatsAppMessage = () => {
-    let message = `*KICK TV - Solicitação de Teste Gratuito*
+    let message = `*KICK TV - Solicitação de Teste por R$ 5,00*
 
 *Plano:* ${packageName}
 *Duração do Teste:* ${getTrialDuration()}
+*Valor:* R$ 5,00
 
-Gostaria de solicitar meu teste gratuito!`;
+Gostaria de solicitar meu teste por R$ 5,00!`;
 
     return message;
   };
@@ -75,10 +76,10 @@ Gostaria de solicitar meu teste gratuito!`;
               Seu teste
             </span>
             <br />
-            <span className="text-white">te espera!</span>
+            <span className="text-white">por R$ 5,00!</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-lg mx-auto leading-relaxed">
-            Está tudo pronto para você experimentar o melhor da <span className="text-kick-green font-semibold">Kick TV</span>
+            Experimente o melhor da <span className="text-kick-green font-semibold">Kick TV</span> por apenas R$ 5,00
           </p>
         </motion.div>
       </motion.div>
@@ -111,7 +112,7 @@ Gostaria de solicitar meu teste gratuito!`;
             >
               <Clock className="w-5 h-5 text-black" />
               <span className="text-lg font-bold text-black">
-                {getTrialDuration()} de teste GRÁTIS
+                {getTrialDuration()} por R$ 5,00
               </span>
             </motion.div>
 
@@ -123,7 +124,7 @@ Gostaria de solicitar meu teste gratuito!`;
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-300">
                 <span className="w-2 h-2 bg-kick-green rounded-full"></span>
-                <span>Sem cartão de crédito</span>
+                <span>Apenas R$ 5,00 via PIX ou cartão</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-300">
                 <span className="w-2 h-2 bg-kick-green rounded-full"></span>
@@ -169,7 +170,7 @@ Gostaria de solicitar meu teste gratuito!`;
                 }}
               >
                 <MessageCircle className="w-8 h-8 text-kick-green drop-shadow-lg" />
-                <span className="text-white font-black drop-shadow-lg">SOLICITAR TESTE AGORA</span>
+              <span className="text-white font-black drop-shadow-lg">SOLICITAR TESTE POR R$ 5</span>
                 <Sparkles className="w-7 h-7 text-kick-green drop-shadow-lg" />
               </motion.div>
             </Button>
@@ -185,7 +186,7 @@ Gostaria de solicitar meu teste gratuito!`;
         className="text-center"
       >
         <p className="text-sm text-gray-400">
-          🚀 Em poucos minutos você estará testando a melhor experiência de TV do Brasil
+          💰 Por apenas R$ 5,00 você testa a melhor experiência de TV do Brasil
         </p>
       </motion.div>
     </div>
