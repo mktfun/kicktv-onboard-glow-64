@@ -449,6 +449,11 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   return (
     <div className="bg-background text-foreground">
+      {/* DEBUG: Indicador visual temporário */}
+      <div className="mb-4 p-2 bg-yellow-500 text-black text-center rounded">
+        DEBUG - Step atual: {currentStep} | Pacote: {selectedPackage} | Duração: {selectedDuration}
+      </div>
+
       <div className="mb-8">
         <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
       </div>
