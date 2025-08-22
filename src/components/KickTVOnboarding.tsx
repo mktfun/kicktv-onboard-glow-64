@@ -262,7 +262,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               <DurationSelection
                 durations={durations}
                 selectedDuration={selectedDuration}
-                onSelectDuration={setSelectedDuration}
+                onSelectDuration={handleSelectDuration}
               />
             </motion.div>
           );
@@ -282,7 +282,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               <DurationSelection
                 durations={durations}
                 selectedDuration={selectedDuration}
-                onSelectDuration={setSelectedDuration}
+                onSelectDuration={handleSelectDuration}
               />
             </motion.div>
           );
