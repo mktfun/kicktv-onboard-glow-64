@@ -71,7 +71,7 @@ export const LandingPage = () => {
       </div>
 
       {/* Container do conteúdo principal que fica na frente do fundo */}
-      <div className="relative z-10 content-container">
+      <div className="relative z-10">
         {/* Indicador de debug temporário */}
         {process.env.NODE_ENV === 'development' && (
           <div className="fixed top-4 right-4 z-[60] bg-black/80 text-white px-3 py-1 rounded text-xs">
