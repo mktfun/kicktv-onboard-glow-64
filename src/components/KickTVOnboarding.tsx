@@ -105,6 +105,13 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     return () => clearTimeout(timer);
   }, [currentStep, selectedDuration]);
 
+  // Habilitar Whot automaticamente para plano Ultra
+  useEffect(() => {
+    if (selectedPackage === 'ultra') {
+      setHasWhot(true);
+    }
+  }, [selectedPackage]);
+
   const getSelectedPackage = () => packages.find(p => p.id === selectedPackage);
   const getSelectedDuration = () => durations.find(d => d.id === selectedDuration);
 
