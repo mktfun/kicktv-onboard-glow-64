@@ -20,20 +20,20 @@ export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="lg:w-1/2 text-center lg:text-left"
+          className="lg:w-1/2 text-center lg:text-left px-2 sm:px-0"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tighter leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tighter leading-tight">
             Sua TV,{" "}
             <span className="text-green-400">
               Reinventada.
             </span>
           </h1>
-          
-          <p className="mt-4 max-w-xl mx-auto lg:mx-0 text-lg text-gray-400 leading-relaxed">
-            Toda a sua TV em um só lugar. <span className="text-green-400 font-semibold">Sem exceção.</span> 
+
+          <p className="mt-3 sm:mt-4 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg text-gray-400 leading-relaxed px-2 sm:px-0">
+            Toda a sua TV em um só lugar. <span className="text-green-400 font-semibold">Sem exceção.</span>
             Canais, filmes, séries e esportes ao vivo. Compatível com todos os seus aparelhos.
           </p>
-          
+
           <motion.button
             onClick={(e) => {
               // Prevenir ativação durante animações ou movimentos acidentais
@@ -51,7 +51,7 @@ export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-8 inline-block bg-green-500 text-black font-bold py-3 px-8 rounded-lg text-lg transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-green-500/25 touch-manipulation select-none"
+            className="mt-6 sm:mt-8 w-full sm:w-auto inline-block bg-green-500 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-green-500/25 touch-manipulation select-none"
             style={{ touchAction: 'manipulation' }}
           >
             MONTE SEU PLANO IDEAL
