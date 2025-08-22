@@ -50,11 +50,11 @@ export const Interactive3DMockup = () => {
           rotateY: rotateY,
         }}
         transition={{ type: "spring", stiffness: 100, damping: 30 }}
-        className="relative z-10"
+        className="relative z-10 w-full"
       >
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className="bg-gradient-to-br from-card to-card/80 p-6 rounded-2xl border border-primary/20 shadow-2xl backdrop-blur-sm"
+          className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border-2 border-green-500/30 shadow-2xl shadow-green-500/20 backdrop-blur-sm"
         >
           <div className="aspect-video bg-gradient-to-br from-background to-muted rounded-lg overflow-hidden border border-border">
             <div className="h-full flex flex-col bg-gradient-to-br from-kick-green/10 to-primary/5 p-4">
