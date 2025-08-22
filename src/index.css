@@ -7,6 +7,11 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  /* Garantir que o body tenha fundo preto */
+  body {
+    background-color: black;
+  }
+
   :root {
     /* Kick TV Dark Theme Design System */
     --background: 0 0% 0%;
