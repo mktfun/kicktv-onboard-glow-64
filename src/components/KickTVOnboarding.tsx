@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ProgressBar } from './ProgressBar';
 import { PackageSelection } from './PackageSelection';
+import { AddOnsStep } from './AddOnsStep';
 import { AdditionalScreensStep } from './AdditionalScreensStep';
 import { DurationSelection } from './DurationSelection';
 import { PaymentStep } from './PaymentStep';
