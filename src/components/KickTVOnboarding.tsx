@@ -4,7 +4,6 @@ import { ProgressBar } from './ProgressBar';
 import { PackageSelection } from './PackageSelection';
 import { AdditionalScreensStep } from './AdditionalScreensStep';
 import { DurationSelection } from './DurationSelection';
-import { SummaryStep } from './SummaryStep';
 import { PaymentStep } from './PaymentStep';
 import { Button } from './ui/button';
 
