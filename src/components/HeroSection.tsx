@@ -13,7 +13,7 @@ export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
       <AnimatedBackground />
 
       {/* Container Principal - Mobile-first otimizado */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 relative z-10">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 relative z-20">
         
         {/* Coluna da Esquerda - O Texto Persuasivo */}
         <motion.div
