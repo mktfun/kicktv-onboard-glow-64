@@ -114,6 +114,9 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       // After duration selection, go to summary
       console.log('Auto-navegação: Step 3 -> 4, selectedDuration:', selectedDuration);
       timer = setTimeout(() => setCurrentStep(4), 250);
+    } else if (currentStep === 4) {
+      // After showing summary, go to payment
+      timer = setTimeout(() => setCurrentStep(5), 2000); // 2 segundos para ver o resumo
     }
 
     return () => clearTimeout(timer);
