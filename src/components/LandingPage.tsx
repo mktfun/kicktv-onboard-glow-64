@@ -26,16 +26,33 @@ export const LandingPage = () => {
   }, [showFunnel]);
 
   const handleStartFunnel = (event?: React.MouseEvent | React.KeyboardEvent) => {
+    const now = Date.now();
+
     // Proteção contra eventos não confiáveis ou automáticos
     if (event && !event.isTrusted) {
       console.warn('Tentativa de abertura do funnel por evento não confiável bloqueada');
       return;
     }
 
+    // Proteção contra interações muito rápidas (possíveis toques acidentais)
+    if (now - lastInteractionRef.current < 500) {
+      console.warn('Interação muito rápida detectada, possível toque acidental');
+      return;
+    }
+
+    // Verificar se já está aberto para evitar múltiplas aberturas
+    if (showFunnel) {
+      console.warn('Funnel já está aberto');
+      return;
+    }
+
+    lastInteractionRef.current = now;
+
     // Log para debug - remover após identificar o problema
     console.log('Funnel aberto por interação do usuário', {
       eventType: event?.type,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      isTrusted: event?.isTrusted
     });
 
     setShowFunnel(true);
