@@ -24,7 +24,19 @@ export const LandingPage = () => {
     };
   }, [showFunnel]);
 
-  const handleStartFunnel = () => {
+  const handleStartFunnel = (event?: React.MouseEvent | React.KeyboardEvent) => {
+    // Proteção contra eventos não confiáveis ou automáticos
+    if (event && !event.isTrusted) {
+      console.warn('Tentativa de abertura do funnel por evento não confiável bloqueada');
+      return;
+    }
+
+    // Log para debug - remover após identificar o problema
+    console.log('Funnel aberto por interação do usuário', {
+      eventType: event?.type,
+      timestamp: new Date().toISOString()
+    });
+
     setShowFunnel(true);
   };
 
