@@ -54,7 +54,7 @@ export const Interactive3DMockup = () => {
       >
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border-2 border-green-500/30 shadow-2xl shadow-green-500/20 backdrop-blur-sm"
+          className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl backdrop-blur-sm mockup-premium-glow"
         >
           <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden border border-green-500/20">
             <div className="h-full flex flex-col bg-gradient-to-br from-green-500/10 to-gray-900/50 p-6">
