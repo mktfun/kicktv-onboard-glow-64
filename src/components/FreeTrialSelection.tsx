@@ -8,32 +8,32 @@ interface FreeTrialSelectionProps {
 
 const trialPackages = [
   {
-    name: "IPTV",
-    duration: "4 horas",
-    icon: Clock,
-    description: "Canais de TV ao vivo",
-    gradient: "from-blue-600 to-blue-700",
-    border: "border-blue-500/30",
-    glow: "shadow-blue-500/20"
-  },
-  {
-    name: "Krator+", 
+    name: "Krator+",
     duration: "1 hora",
     icon: Zap,
-    description: "Filmes e séries premium",
-    gradient: "from-purple-600 to-purple-700", 
+    description: "Canais, filmes e séries com app próprio (não funciona no iPhone)",
+    gradient: "from-purple-600 to-purple-700",
     border: "border-purple-500/30",
     glow: "shadow-purple-500/20"
   },
   {
-    name: "Nexus",
-    duration: "24 horas", 
-    icon: Crown,
-    description: "Experiência completa",
-    gradient: "from-kick-green to-kick-green-dark",
-    border: "border-kick-green/30", 
-    glow: "shadow-kick-green/20",
+    name: "IPTV",
+    duration: "4 horas",
+    icon: Clock,
+    description: "Canais, filmes e séries ao vivo",
+    gradient: "from-blue-600 to-blue-700",
+    border: "border-blue-500/30",
+    glow: "shadow-blue-500/20",
     popular: true
+  },
+  {
+    name: "Nexus",
+    duration: "24 horas",
+    icon: Crown,
+    description: "Experiência completa com app próprio (não funciona no iPhone)",
+    gradient: "from-kick-green to-kick-green-dark",
+    border: "border-kick-green/30",
+    glow: "shadow-kick-green/20"
   }
 ];
 
