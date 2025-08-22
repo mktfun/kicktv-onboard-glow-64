@@ -71,19 +71,34 @@ export const AddOnsStep = ({
             
             <div className="space-y-2 mb-4">
               {selectedPackage === 'essencial' && (
-                <p className="text-sm text-muted-foreground">
-                  Acesso a conteúdo adulto exclusivo
-                </p>
+                <div className="space-y-1">
+                  <p className="text-sm text-muted-foreground">
+                    Acesso a conteúdo adulto exclusivo
+                  </p>
+                  <p className="text-xs text-orange-400 font-medium">
+                    ⚠️ Disponível apenas no navegador
+                  </p>
+                </div>
               )}
               {selectedPackage === 'premium' && (
-                <p className="text-sm text-muted-foreground">
-                  Acesso a conteúdo adulto exclusivo
-                </p>
+                <div className="space-y-1">
+                  <p className="text-sm text-muted-foreground">
+                    Acesso a conteúdo adulto exclusivo
+                  </p>
+                  <p className="text-xs text-orange-400 font-medium">
+                    ⚠️ Disponível apenas no navegador
+                  </p>
+                </div>
               )}
               {selectedPackage === 'ultra' && (
-                <p className="text-sm text-muted-foreground">
-                  Conteúdo adulto premium já incluído no seu plano Ultra
-                </p>
+                <div className="space-y-1">
+                  <p className="text-sm text-muted-foreground">
+                    Conteúdo adulto premium já incluído no seu plano Ultra
+                  </p>
+                  <p className="text-xs text-orange-400 font-medium">
+                    ⚠️ Disponível apenas no navegador
+                  </p>
+                </div>
               )}
             </div>
 
