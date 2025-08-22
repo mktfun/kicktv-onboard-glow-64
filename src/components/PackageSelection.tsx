@@ -72,6 +72,18 @@ export const PackageSelection = ({
                 <Check className="w-4 h-4 text-background" />
               </motion.div>
             )}
+
+            {/* Badge MAIS POPULAR para Premium */}
+            {pkg.id === 'premium' && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="absolute -top-3 -left-3 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg"
+              >
+                MAIS POPULAR
+              </motion.div>
+            )}
             
             {/* Tooltip */}
             <div className="absolute top-4 right-4">
