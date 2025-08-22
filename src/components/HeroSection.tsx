@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { AnimatedBackground } from "./AnimatedBackground";
 import { Interactive3DMockup } from "./Interactive3DMockup";
 
 interface HeroSectionProps {
