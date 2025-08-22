@@ -48,7 +48,7 @@ export const LandingPage = () => {
 
     lastInteractionRef.current = now;
 
-    // Log para debug - remover após identificar o problema
+    // Log para debug - remover ap��s identificar o problema
     console.log('Funnel aberto por interação do usuário', {
       eventType: event?.type,
       timestamp: new Date().toISOString(),
@@ -64,6 +64,13 @@ export const LandingPage = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Indicador de debug temporário */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="fixed top-4 right-4 z-[60] bg-black/80 text-white px-3 py-1 rounded text-xs">
+          Funnel: {showFunnel ? 'ABERTO' : 'fechado'}
+        </div>
+      )}
+
       {/* Landing Page Content with fade-out effect when funnel is open */}
       <motion.div
         animate={{
