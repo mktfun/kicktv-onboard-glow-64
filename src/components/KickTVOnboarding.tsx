@@ -131,7 +131,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       monthlyPrice += 30;
     }
 
-    // Calcular total baseado na duração (duration.price é o preço total para aquela duraç��o)
+    // Calcular total baseado na duração (duration.price é o preço total para aquela duração)
     // Para manter compatibilidade, vamos usar a estrutura atual mas aplicar a nova lógica
     const totalForDuration = monthlyPrice * duration.months;
 
@@ -217,16 +217,18 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       case 2:
         return (
           <motion.div
-            key="additional-screens"
+            key="add-ons"
             variants={stepVariants}
             initial="initial"
             animate="animate"
             exit="exit"
             transition={transition}
           >
-            <AdditionalScreensStep
-              additionalScreens={additionalScreens}
-              onUpdateScreens={setAdditionalScreens}
+            <AddOnsStep
+              selectedPackage={selectedPackage}
+              hasWhot={hasWhot}
+              onToggleWhot={setHasWhot}
+              onContinue={handleAddOnsComplete}
             />
           </motion.div>
         );
