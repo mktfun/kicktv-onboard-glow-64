@@ -4,9 +4,10 @@ import { KickTVInterface } from "./KickTVInterface";
 
 interface HeroSectionProps {
   onStartFunnel: (event?: React.MouseEvent | React.KeyboardEvent) => void;
+  onStartFreeTrial: (event?: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
+export const HeroSection = ({ onStartFunnel, onStartFreeTrial }: HeroSectionProps) => {
   return (
     <section className="min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden py-8 sm:py-12 lg:py-0">{/* Fundo agora é global - AnimatedBackground foi movido para LandingPage */}
 
@@ -32,28 +33,50 @@ export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
             Canais, filmes, séries e esportes ao vivo. Compatível com todos os seus aparelhos.
           </p>
 
-          <motion.button
-            onClick={(e) => {
-              // Prevenir ativação durante animações ou movimentos acidentais
-              e.preventDefault();
-              e.stopPropagation();
-              onStartFunnel(e);
-            }}
-            onMouseDown={(e) => {
-              // Garantir que é um clique intencional
-              if (e.button !== 0) return; // Apenas botão esquerdo do mouse
-            }}
-            onTouchStart={(e) => {
-              // Prevenir toques acidentais muito rápidos
-              e.currentTarget.style.touchAction = 'manipulation';
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 sm:mt-8 w-full sm:w-auto inline-block bg-green-500 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-green-500/25 touch-manipulation select-none"
-            style={{ touchAction: 'manipulation' }}
-          >
-            MONTE SEU PLANO IDEAL
-          </motion.button>
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
+            <motion.button
+              onClick={(e) => {
+                // Prevenir ativação durante animações ou movimentos acidentais
+                e.preventDefault();
+                e.stopPropagation();
+                onStartFunnel(e);
+              }}
+              onMouseDown={(e) => {
+                // Garantir que é um clique intencional
+                if (e.button !== 0) return; // Apenas botão esquerdo do mouse
+              }}
+              onTouchStart={(e) => {
+                // Prevenir toques acidentais muito rápidos
+                e.currentTarget.style.touchAction = 'manipulation';
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-block bg-green-500 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-green-500/25 touch-manipulation select-none"
+              style={{ touchAction: 'manipulation' }}
+            >
+              MONTE SEU PLANO IDEAL
+            </motion.button>
+
+            <motion.button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onStartFreeTrial(e);
+              }}
+              onMouseDown={(e) => {
+                if (e.button !== 0) return;
+              }}
+              onTouchStart={(e) => {
+                e.currentTarget.style.touchAction = 'manipulation';
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-block bg-transparent border-2 border-green-500 text-green-500 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transform hover:scale-105 transition-all duration-200 hover:bg-green-500 hover:text-black touch-manipulation select-none"
+              style={{ touchAction: 'manipulation' }}
+            >
+              TESTE GRATUITO
+            </motion.button>
+          </div>
         </motion.div>
         
         {/* Coluna da Direita - O ContainerScroll */}
