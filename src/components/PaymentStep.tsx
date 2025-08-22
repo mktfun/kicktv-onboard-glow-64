@@ -16,6 +16,7 @@ export const PaymentStep = ({
   duration,
   total,
   hasAdultContent,
+  hasWhot,
   additionalScreens
 }: PaymentStepProps) => {
   const generateWhatsAppMessage = () => {
