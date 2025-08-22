@@ -59,11 +59,7 @@ export const PackageSelection = ({
             transition={{ duration: 0.3, delay: index * 0.1 }}
             whileHover={{ y: -5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`relative bg-card border-2 rounded-2xl p-8 cursor-pointer transition-all duration-200 ${
-              selectedPackage === pkg.id
-                ? 'card-selected border-gradient-animated'
-                : 'border-border card-hover'
-            }`}
+            className={getCardStyles(pkg.id, selectedPackage === pkg.id)}
             onClick={() => onSelectPackage(pkg.id)}
           >
             {selectedPackage === pkg.id && (
