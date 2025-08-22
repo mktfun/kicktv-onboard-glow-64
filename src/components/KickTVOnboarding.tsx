@@ -171,9 +171,19 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   const canProceedFromStep = (step: number) => {
     switch (step) {
       case 1: return !!selectedPackage;
-      case 2: return true; // Additional screens can be 0
-      case 3: return !!selectedDuration;
+      case 2: return true; // AddOns step can proceed
+      case 3: return true; // Additional screens can be 0
+      case 4: return !!selectedDuration;
       default: return true;
+    }
+  };
+
+  const handleAddOnsComplete = () => {
+    const pkg = getSelectedPackage();
+    if (pkg?.allowsAdditionalScreens) {
+      setCurrentStep(3); // Go to additional screens
+    } else {
+      setCurrentStep(4); // Skip to duration for Ultra
     }
   };
 
