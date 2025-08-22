@@ -10,6 +10,8 @@ interface PackageSelectionProps {
   onSelectPackage: (packageId: string) => void;
   hasAdultContent: boolean;
   onToggleAdultContent: (enabled: boolean) => void;
+  hasWhot: boolean;
+  onToggleWhot: (enabled: boolean) => void;
 }
 
 export const PackageSelection = ({
