@@ -7,6 +7,7 @@ interface PaymentStepProps {
   duration: string;
   total: number;
   hasAdultContent: boolean;
+  hasWhot: boolean;
   additionalScreens: number;
 }
 
