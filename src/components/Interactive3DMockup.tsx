@@ -80,10 +80,10 @@ export const Interactive3DMockup = () => {
                 <motion.div
                   animate={{ opacity: [1, 0.5, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="flex items-center space-x-1 bg-red-600 rounded-full px-2 py-1"
+                  className="flex items-center space-x-2 bg-red-600 rounded-full px-4 py-2"
                 >
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-white text-xs font-bold">AO VIVO</span>
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                  <span className="text-white text-sm font-bold">AO VIVO</span>
                 </motion.div>
               </motion.div>
 
