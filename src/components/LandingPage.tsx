@@ -9,6 +9,7 @@ import { Button } from "./ui/button";
 
 export const LandingPage = () => {
   const [showFunnel, setShowFunnel] = useState(false);
+  const lastInteractionRef = useRef<number>(0);
 
   // Fix 2: Controlar scroll do body quando modal aberto
   useEffect(() => {
