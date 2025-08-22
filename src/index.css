@@ -142,6 +142,29 @@ All colors MUST be HSL.
   .bg-gradient-radial {
     background: radial-gradient(circle, var(--tw-gradient-stops));
   }
+
+  /* Mobile-first responsive utilities */
+  .mobile-optimized {
+    @apply text-sm sm:text-base;
+  }
+
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-margin {
+    @apply my-6 sm:my-8 lg:my-12;
+  }
+
+  /* Improved touch targets for mobile */
+  .touch-friendly {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Better text readability on mobile */
+  .mobile-text {
+    @apply leading-relaxed tracking-wide;
+  }
 }
 
 /* Fix 3: Estilização da barra de scroll para navegadores WebKit (Chrome, Safari, etc.) */
