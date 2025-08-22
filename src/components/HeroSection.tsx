@@ -35,10 +35,24 @@ export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
           </p>
           
           <motion.button
-            onClick={onStartFunnel}
+            onClick={(e) => {
+              // Prevenir ativação durante animações ou movimentos acidentais
+              e.preventDefault();
+              e.stopPropagation();
+              onStartFunnel(e);
+            }}
+            onMouseDown={(e) => {
+              // Garantir que é um clique intencional
+              if (e.button !== 0) return; // Apenas botão esquerdo do mouse
+            }}
+            onTouchStart={(e) => {
+              // Prevenir toques acidentais muito rápidos
+              e.currentTarget.style.touchAction = 'manipulation';
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-8 inline-block bg-green-500 text-black font-bold py-3 px-8 rounded-lg text-lg transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-green-500/25"
+            className="mt-8 inline-block bg-green-500 text-black font-bold py-3 px-8 rounded-lg text-lg transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-green-500/25 touch-manipulation select-none"
+            style={{ touchAction: 'manipulation' }}
           >
             MONTE SEU PLANO IDEAL
           </motion.button>
