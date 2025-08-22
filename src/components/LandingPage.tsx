@@ -5,6 +5,7 @@ import { HeroSection } from "./HeroSection";
 import { BenefitsSection } from "./BenefitsSection";
 import { CompatibilitySection } from "./CompatibilitySection";
 import { KickTVOnboarding } from "./KickTVOnboarding";
+import { AnimatedBackground } from "./AnimatedBackground";
 import { Button } from "./ui/button";
 
 export const LandingPage = () => {
