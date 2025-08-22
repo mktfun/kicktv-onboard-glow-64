@@ -54,7 +54,7 @@ const packages: Package[] = [
       '1 Tela inclusa',
       '+ R$15 por tela adicional'
     ],
-    tooltip: 'O plano Premium libera o Nexus, nosso acervo de conteúdo On-Demand com mais de 90.000 filmes e séries atualizados diariamente, além de tecnologia que evita travamentos. Whot (+18) disponível como add-on via app Nexus (apenas navegador).'
+    tooltip: 'O plano Premium libera o Nexus, nosso acervo de conteúdo On-Demand com mais de 90.000 filmes e séries atualizados diariamente, além de tecnologia que evita travamentos. Whot (+18) disponível como add-on.'
   },
   {
     id: 'ultra',
