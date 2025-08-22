@@ -155,7 +155,12 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
+      // Skip AddOns step for Ultra plan since Whot is already included
+      if (currentStep === 1 && selectedPackage === 'ultra') {
+        setCurrentStep(4); // Skip to duration selection
+      } else {
+        setCurrentStep(currentStep + 1);
+      }
     }
   };
 
