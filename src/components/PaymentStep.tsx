@@ -22,10 +22,11 @@ export const PaymentStep = ({
   const generateWhatsAppMessage = () => {
     const telasText = additionalScreens > 0 ? `, ${additionalScreens} tela(s) adicional(is)` : '';
     const adultoText = hasAdultContent ? ', Conteúdo Adulto incluído' : '';
+    const whotText = hasWhot ? ', Whot (+18) incluído' : '';
     return `🎬 *KICK TV - Novo Pedido*
-    
+
 📦 *Plano:* ${packageName}
-⏱️ *Duração:* ${duration}${telasText}${adultoText}
+⏱️ *Duração:* ${duration}${telasText}${adultoText}${whotText}
 💰 *Total:* R$ ${total},00
 
 Gostaria de finalizar minha compra! 🚀`;
