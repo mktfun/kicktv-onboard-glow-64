@@ -180,6 +180,11 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
 
   const handleAddOnsComplete = () => {
     const pkg = getSelectedPackage();
+    // Se for Ultra, garantir que Whot está habilitado
+    if (pkg?.id === 'ultra') {
+      setHasWhot(true);
+    }
+
     if (pkg?.allowsAdditionalScreens) {
       setCurrentStep(3); // Go to additional screens
     } else {
