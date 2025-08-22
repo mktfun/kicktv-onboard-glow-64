@@ -231,18 +231,18 @@ Gostaria de finalizar minha compra!`;
                 </motion.div>
               )}
 
-              {/* Total Section */}
-              <motion.div 
+              {/* Total Section - Transparente para mostrar o fundo */}
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.7 }}
                 className="relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-kick-green/20 to-kick-green-light/20 rounded-2xl blur-lg"></div>
-                <div className="relative bg-gradient-to-r from-kick-green/10 to-kick-green-light/10 border-2 border-kick-green/30 rounded-2xl p-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-kick-green/10 to-kick-green-light/10 rounded-2xl blur-lg"></div>
+                <div className="relative bg-black/20 backdrop-blur-sm border-2 border-kick-green/30 rounded-2xl p-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-foreground">💰 Total</span>
-                    <span className="text-3xl font-black bg-gradient-to-r from-kick-green to-kick-green-light bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold text-white drop-shadow-lg">💰 Total</span>
+                    <span className="text-3xl font-black bg-gradient-to-r from-kick-green to-kick-green-light bg-clip-text text-transparent drop-shadow-lg">
                       R$ {total},00
                     </span>
                   </div>
@@ -252,8 +252,8 @@ Gostaria de finalizar minha compra!`;
           </div>
         </motion.div>
 
-        {/* Premium CTA Button */}
-        <motion.div 
+        {/* Premium CTA Button - Transparente para mostrar o fundo */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.8 }}
@@ -271,26 +271,26 @@ Gostaria de finalizar minha compra!`;
               className="relative group"
             >
               {/* Button Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-kick-green via-kick-green-light to-kick-green rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              
+              <div className="absolute inset-0 bg-gradient-to-r from-kick-green/30 via-kick-green-light/30 to-kick-green/30 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></div>
+
               <Button
                 variant="kick"
-                className="relative w-full py-8 text-xl rounded-2xl font-black bg-gradient-to-r from-kick-green via-kick-green-light to-kick-green hover:from-kick-green-light hover:to-kick-green shadow-2xl shadow-kick-green/50 transform transition-all duration-300"
+                className="relative w-full py-8 text-xl rounded-2xl font-black bg-black/30 backdrop-blur-sm border-2 border-kick-green/50 hover:bg-black/40 hover:border-kick-green/70 shadow-2xl shadow-kick-green/50 transform transition-all duration-300"
               >
                 <motion.div
                   className="flex items-center justify-center space-x-3"
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.05, 1]
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 2,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
                 >
-                  <MessageCircle className="w-7 h-7" />
-                  <span>FINALIZAR NO WHATSAPP</span>
-                  <Sparkles className="w-6 h-6" />
+                  <MessageCircle className="w-7 h-7 text-kick-green drop-shadow-lg" />
+                  <span className="text-white font-black drop-shadow-lg">FINALIZAR NO WHATSAPP</span>
+                  <Sparkles className="w-6 h-6 text-kick-green drop-shadow-lg" />
                 </motion.div>
               </Button>
             </motion.div>
