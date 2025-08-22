@@ -150,7 +150,7 @@ export const PackageSelection = ({
                     <span className="text-orange-500 text-sm">📱</span>
                     <div className="text-xs text-orange-300">
                       <div className="font-semibold mb-1">Limitação temporária:</div>
-                      <div>Ainda não temos app para iPhone. Acesso via navegador disponível.</div>
+                      <div>Ainda não temos app para iPhone.</div>
                     </div>
                   </div>
                 </motion.div>
