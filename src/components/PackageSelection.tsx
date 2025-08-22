@@ -137,6 +137,24 @@ export const PackageSelection = ({
               }`}>
                 {selectedPackage === pkg.id ? '✓ Selecionado' : 'Clique para selecionar'}
               </div>
+
+              {/* Aviso sobre limitação do iPhone para Premium e Ultra */}
+              {selectedPackage === pkg.id && (pkg.id === 'premium' || pkg.id === 'ultra') && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-3 p-3 bg-orange-500/10 border border-orange-500/30 rounded-lg"
+                >
+                  <div className="flex items-start space-x-2">
+                    <span className="text-orange-500 text-sm">📱</span>
+                    <div className="text-xs text-orange-300">
+                      <div className="font-semibold mb-1">Limitação temporária:</div>
+                      <div>Ainda não temos app para iPhone. Acesso via navegador disponível.</div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </motion.div>
         ))}
