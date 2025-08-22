@@ -49,7 +49,7 @@ const packages: Package[] = [
     allowsAdditionalScreens: true,
     benefits: [
       'Tudo do Essencial, e mais...',
-      'Catálogo Nexus com milhares de títulos On-Demand',
+      'Catálogo Nexus com milhares de títulos On-Demand (apenas navegador)',
       'Estabilidade superior com Anti-Freeze Tech',
       '1 Tela inclusa',
       '+ R$15 por tela adicional'
