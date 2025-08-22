@@ -102,16 +102,8 @@ export const LandingPage = () => {
             animate={{ opacity: 1, backdropFilter: "blur(4px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed inset-0 z-50 bg-black/90"
+            className="fixed inset-0 z-50 bg-black/80"
           >
-            {/* Background overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="absolute inset-0 bg-black/80"
-            />
 
             {/* Modal Content */}
             <motion.div
