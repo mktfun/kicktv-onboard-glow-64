@@ -115,6 +115,45 @@ export const PackageSelection = ({
           </motion.div>
         ))}
       </div>
+
+      {/* Opção discreta do Whot para Essencial e Premium */}
+      {(selectedPackage === 'essencial' || selectedPackage === 'premium') && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          transition={{ duration: 0.3 }}
+          className="mt-8 max-w-md mx-auto"
+        >
+          <div className="bg-card/50 border border-border/50 rounded-xl p-6">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <span className="text-lg">🔞</span>
+                  Whot (+18)
+                </h4>
+                <p className="text-xs text-muted-foreground">
+                  {selectedPackage === 'premium'
+                    ? 'Acesso exclusivo via app Nexus (+R$30/mês)'
+                    : 'Apenas no navegador (+R$30/mês)'
+                  }
+                </p>
+              </div>
+              <button
+                onClick={() => onToggleWhot(!hasWhot)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  hasWhot ? 'bg-kick-green' : 'bg-muted'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-background transition-transform ${
+                    hasWhot ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };
