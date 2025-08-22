@@ -166,6 +166,38 @@ All colors MUST be HSL.
     @apply leading-relaxed tracking-wide;
   }
 
+  /* Efeito Glow Premium - Múltiplas Sombras */
+  .mockup-premium-glow {
+    /* Borda interna quase invisível */
+    border: 1px solid rgba(52, 211, 153, 0.2);
+
+    /* A MÁGICA: MÚLTIPLAS SOMBRAS EM CAMADAS */
+    box-shadow:
+      /* Sombra interna para dar profundidade */
+      inset 0 0 15px rgba(52, 211, 153, 0.1),
+
+      /* Glow principal - mais próximo e mais forte */
+      0 0 10px rgba(52, 211, 153, 0.4),
+
+      /* Glow secundário - mais espalhado e suave */
+      0 0 25px rgba(52, 211, 153, 0.2),
+
+      /* Glow terciário - o mais espalhado, cria a "aura" */
+      0 0 50px rgba(52, 211, 153, 0.1);
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  .mockup-premium-glow:hover {
+    /* Intensifica o efeito no hover */
+    box-shadow:
+      inset 0 0 20px rgba(52, 211, 153, 0.2),
+      0 0 15px rgba(52, 211, 153, 0.6),
+      0 0 35px rgba(52, 211, 153, 0.4),
+      0 0 60px rgba(52, 211, 153, 0.2);
+    transform: scale(1.02);
+  }
+
   /* Fundo de Vidro Embaçado Animado - Nebulosa */
   .background-nebula-container {
     position: fixed;
