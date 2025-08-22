@@ -249,92 +249,16 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
           </motion.div>
         );
       case 4:
-        const selectedPkg = getSelectedPackage();
-        if (selectedPkg?.allowsAdditionalScreens) {
-          return (
-            <motion.div
-              key="duration-selection-4"
-              variants={stepVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={transition}
-            >
-              <DurationSelection
-                durations={durations}
-                selectedDuration={selectedDuration}
-                onSelectDuration={handleSelectDuration}
-              />
-            </motion.div>
-          );
-        } else {
-          return (
-            <motion.div
-              key="summary-4"
-              variants={stepVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={transition}
-              className="space-y-6"
-            >
-              <h2 className="text-3xl font-bold text-center text-kick-green">Seu Plano Ideal está pronto!</h2>
-              <div className="bg-card border border-border rounded-xl p-8 space-y-4 shadow-2xl shadow-kick-green/10 glow-green">
-                <div className="flex justify-between items-center">
-                  <span className="text-foreground">Plano:</span>
-                  <span className="text-kick-green font-semibold">{getSelectedPackage()?.name} (1 Tela)</span>
-                </div>
-                {additionalScreens > 0 && (
-                  <div className="flex justify-between items-center">
-                    <span className="text-foreground">Telas Adicionais:</span>
-                    <span className="text-kick-green font-semibold">{additionalScreens} (R$ {additionalScreens * 15},00 / mês)</span>
-                  </div>
-                )}
-                <div className="flex justify-between items-center">
-                  <span className="text-foreground">Duração:</span>
-                  <span className="text-kick-green font-semibold">{getSelectedDuration()?.label}</span>
-                </div>
-                {hasAdultContent && (
-                  <div className="flex justify-between items-center">
-                    <span className="text-foreground">Conteúdo Adulto:</span>
-                    <span className="text-kick-green font-semibold">R$ {20 * (getSelectedDuration()?.months || 1)},00</span>
-                  </div>
-                )}
-                <hr className="border-border" />
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-foreground">Subtotal:</span>
-                    <span className="text-foreground">R$ {
-                      (() => {
-                        const duration = getSelectedDuration();
-                        if (!duration) return 0;
-                        return duration.price + (additionalScreens * 15 * duration.months);
-                      })()
-                    },00</span>
-                  </div>
-                  {getSelectedDuration()?.discount && (
-                    <div className="flex justify-between items-center text-kick-green">
-                      <span>Desconto:</span>
-                      <span>- R$ {
-                        (() => {
-                          const duration = getSelectedDuration();
-                          if (duration?.id === '3m') return '5';
-                          if (duration?.id === '6m') return '20';
-                          if (duration?.id === '12m') return '70';
-                          return '0';
-                        })()
-                      },00</span>
-                    </div>
-                  )}
-                  <div className="flex justify-between items-center text-xl font-bold">
-                    <span className="text-foreground">Total:</span>
-                    <span className="text-kick-green">R$ {calculateTotal()},00</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          );
-        }
+        return (
+          <SummaryStep
+            packageName={getSelectedPackage()?.name || ''}
+            additionalScreens={additionalScreens}
+            hasAdultContent={hasAdultContent}
+            duration={getSelectedDuration()?.label || ''}
+            durationMonths={getSelectedDuration()?.months || 1}
+            calculateTotal={calculateTotal}
+          />
+        );
       case 5:
         return (
           <motion.div
