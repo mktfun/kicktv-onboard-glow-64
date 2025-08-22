@@ -13,16 +13,16 @@ const TVMockup = () => (
           <div className="p-3">
             {/* Top Bar */}
             <div className="flex justify-between items-center mb-2">
-              <div className="text-white text-xs font-bold">KICK TV</div>
-              <div className="text-white text-xs">20:30</div>
+              <div className="text-white text-xs sm:text-xs font-bold">KICK TV</div>
+              <div className="text-white text-xs sm:text-xs">20:30</div>
             </div>
 
             {/* Channel Grid */}
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-3 gap-0.5 sm:gap-1">
               {Array.from({length: 6}).map((_, i) => (
                 <div key={i} className="bg-gray-800/60 rounded aspect-video relative">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Play className="w-3 h-3 text-kick-green" />
+                    <Play className="w-2 h-2 sm:w-3 sm:h-3 text-kick-green" />
                   </div>
                 </div>
               ))}
@@ -34,7 +34,7 @@ const TVMockup = () => (
         <div className="absolute top-2 right-2">
           <div className="flex items-center space-x-1 bg-red-600 rounded-full px-2 py-1">
             <div className="w-1 h-1 bg-white rounded-full animate-pulse"></div>
-            <span className="text-white text-xs font-bold">AO VIVO</span>
+            <span className="text-white text-xs sm:text-xs font-bold">AO VIVO</span>
           </div>
         </div>
       </div>
