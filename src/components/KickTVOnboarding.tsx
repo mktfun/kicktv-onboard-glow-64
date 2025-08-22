@@ -105,12 +105,12 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     return () => clearTimeout(timer);
   }, [currentStep, selectedDuration]);
 
-  // Reset Whot when package changes (except for Ultra which includes it)
+  // Handle Whot state based on selected package
   useEffect(() => {
-    if (selectedPackage !== 'ultra') {
-      setHasWhot(false);
-    } else {
+    if (selectedPackage === 'ultra') {
       setHasWhot(true); // Ultra includes Whot by default
+    } else {
+      setHasWhot(false); // Reset to false for other packages
     }
   }, [selectedPackage]);
 
