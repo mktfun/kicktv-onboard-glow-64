@@ -230,8 +230,15 @@ export const CompatibilitySection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{
+                scale: 1.05,
+                rotateX: 5,
+                rotateY: 10,
+                y: -15,
+                transition: { duration: 0.3, type: "spring" }
+              }}
               className="group cursor-pointer"
+              style={{ perspective: '1000px' }}
             >
               <div className="bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full">
                 {/* Device Mockup Container */}
