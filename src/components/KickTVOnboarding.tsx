@@ -243,17 +243,6 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
         );
       case 4:
         return (
-          <SummaryStep
-            packageName={getSelectedPackage()?.name || ''}
-            additionalScreens={additionalScreens}
-            hasAdultContent={hasAdultContent}
-            duration={getSelectedDuration()?.label || ''}
-            durationMonths={getSelectedDuration()?.months || 1}
-            calculateTotal={calculateTotal}
-          />
-        );
-      case 5:
-        return (
           <motion.div
             key="payment"
             variants={stepVariants}
