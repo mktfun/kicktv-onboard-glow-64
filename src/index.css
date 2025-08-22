@@ -220,8 +220,8 @@ All colors MUST be HSL.
   .blob {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.25; /* Bem mais visível e sempre ativo */
-    filter: blur(160px); /* Blur reduzido para maior visibilidade */
+    opacity: 0.35; /* Igual ao hover - sempre visível */
+    filter: blur(140px); /* Igual ao hover para máxima visibilidade */
     will-change: transform;
     transition: opacity 0.3s ease;
   }
