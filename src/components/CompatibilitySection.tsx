@@ -49,11 +49,11 @@ const TVMockup = () => (
 
 // Componente do Mockup do MacBook
 const LaptopMockup = () => (
-  <div className="relative w-full h-full">
+  <div className="relative w-full aspect-video">
     {/* MacBook Body */}
-    <div className="bg-gray-300 rounded-t-xl p-2 shadow-2xl">
+    <div className="bg-gray-300 rounded-t-xl p-2 shadow-2xl h-full">
       {/* Screen */}
-      <div className="bg-black rounded-t-lg aspect-video relative overflow-hidden">
+      <div className="bg-black rounded-t-lg aspect-video relative overflow-hidden h-full">
         {/* Browser Chrome */}
         <div className="bg-gray-700 px-2 py-1 flex items-center space-x-1">
           <div className="flex space-x-1">
