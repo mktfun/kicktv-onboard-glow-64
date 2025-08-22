@@ -39,7 +39,7 @@ const packages: Package[] = [
       'Tecnologia híbrida (IPTV + P2P)',
       '+ R$15 por tela adicional'
     ],
-    tooltip: 'Nosso plano Essencial combina IPTV, a transmissão direta do servidor para sua TV, com a tecnologia P2P, que distribui o sinal entre os usuários para garantir mais estabilidade em grandes eventos, como jogos de futebol. Whot (+18) disponível como add-on apenas no navegador.'
+    tooltip: 'Nosso plano Essencial combina IPTV, a transmissão direta do servidor para sua TV, com a tecnologia P2P, que distribui o sinal entre os usuários para garantir mais estabilidade em grandes eventos, como jogos de futebol. Whot (+18) disponível como add-on.'
   },
   {
     id: 'premium',
