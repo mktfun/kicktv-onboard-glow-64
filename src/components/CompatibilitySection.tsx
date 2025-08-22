@@ -266,9 +266,9 @@ export const CompatibilitySection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-8 sm:mt-10 lg:mt-12"
+          className="text-center mt-6 sm:mt-8 lg:mt-10"
         >
-          <p className="text-sm sm:text-base text-muted-foreground px-4">
+          <p className="text-xs sm:text-sm text-muted-foreground px-4">
             E mais: Chromecast, Apple TV, Fire Stick, e qualquer dispositivo com navegador web.
           </p>
         </motion.div>
