@@ -406,15 +406,3 @@ All colors MUST be HSL.
   scrollbar-width: thin;
   scrollbar-color: #34D399 #111;
 }
-
-/* --- CÓDIGO DE DEBUG TEMPORÁRIO --- */
-
-/* Desenha uma linha VERMELHA ao redor do container do fundo */
-.background-nebula-container {
-  outline: 2px solid red !important;
-}
-
-/* Desenha uma linha AZUL ao redor do container do conteúdo */
-.content-container {
-  outline: 2px solid blue !important;
-}
