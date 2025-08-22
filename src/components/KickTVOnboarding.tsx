@@ -54,7 +54,7 @@ const packages: Package[] = [
       '1 Tela inclusa',
       '+ R$15 por tela adicional'
     ],
-    tooltip: 'O plano Premium libera o Nexus, nosso acervo de conteúdo On-Demand com mais de 90.000 filmes e séries atualizados diariamente, além de tecnologia que evita travamentos. Whot (+18) disponível como add-on via app Nexus exclusivo.'
+    tooltip: 'O plano Premium libera o Nexus, nosso acervo de conteúdo On-Demand com mais de 90.000 filmes e séries atualizados diariamente, além de tecnologia que evita travamentos. Whot (+18) disponível como add-on via app Nexus (apenas navegador).'
   },
   {
     id: 'ultra',
@@ -68,7 +68,7 @@ const packages: Package[] = [
       'Whot (+18) incluso via app Nexus',
       '1 Tela (preço fixo, sem extras)'
     ],
-    tooltip: 'A experiência definitiva. O plano Ultra te dá acesso através do aplicativo Krator+, conhecido pela sua interface moderna e facilidade de uso em qualquer Smart TV, além de acesso ao Whot (+18) via aplicativo exclusivo Nexus já incluso no preço.'
+    tooltip: 'A experiência definitiva. O plano Ultra te dá acesso através do aplicativo Krator+, conhecido pela sua interface moderna e facilidade de uso em qualquer Smart TV, além de acesso ao Whot (+18) via aplicativo exclusivo Nexus já incluso no preço (apenas navegador).'
   }
 ];
 
