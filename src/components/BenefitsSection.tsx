@@ -38,7 +38,7 @@ export const BenefitsSection = () => {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 md:grid-cols-3">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
@@ -56,16 +56,16 @@ export const BenefitsSection = () => {
               className="text-center group cursor-pointer"
               style={{ perspective: '1000px' }}
             >
-              <div className="bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/20 h-full">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <benefit.icon className="w-8 h-8 text-primary" />
+              <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/20 h-full">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full mb-4 sm:mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </div>
-                
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 group-hover:text-primary transition-colors duration-300">
                   {benefit.title}
                 </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
+
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
