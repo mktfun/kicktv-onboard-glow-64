@@ -86,6 +86,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedPackage, setSelectedPackage] = useState<string>('');
   const [hasAdultContent, setHasAdultContent] = useState(false);
+  const [hasWhot, setHasWhot] = useState(false);
   const [additionalScreens, setAdditionalScreens] = useState(0);
   const [selectedDuration, setSelectedDuration] = useState<string>('');
 
@@ -130,6 +131,11 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     // Adicionar conteúdo adulto (apenas para Essencial e Premium, Ultra já inclui)
     if (hasAdultContent && (pkg.id === 'essencial' || pkg.id === 'premium')) {
       monthlyPrice += 20;
+    }
+
+    // Adicionar Whot (+18) - R$30 para Essencial e Premium
+    if (hasWhot && (pkg.id === 'essencial' || pkg.id === 'premium')) {
+      monthlyPrice += 30;
     }
 
     // Calcular total baseado na duração (duration.price é o preço total para aquela duração)
@@ -204,6 +210,8 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               onSelectPackage={setSelectedPackage}
               hasAdultContent={hasAdultContent}
               onToggleAdultContent={setHasAdultContent}
+              hasWhot={hasWhot}
+              onToggleWhot={setHasWhot}
             />
           </motion.div>
         );
@@ -255,6 +263,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               duration={getSelectedDuration()?.label || ''}
               total={calculateTotal()}
               hasAdultContent={hasAdultContent}
+              hasWhot={hasWhot}
               additionalScreens={additionalScreens}
             />
           </motion.div>
