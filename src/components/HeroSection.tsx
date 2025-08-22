@@ -63,10 +63,10 @@ export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
           initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="lg:w-1/2 flex items-center justify-center p-8"
+          className="lg:w-1/2 flex items-center justify-center p-2 sm:p-4 lg:p-8 w-full"
         >
-          <div className="w-full max-w-2xl">
-            {/* Mockup 3D Interativo - SIGNIFICATIVAMENTE MAIOR */}
+          <div className="w-full max-w-sm sm:max-w-lg lg:max-w-2xl">
+            {/* Mockup 3D Interativo - Responsivo */}
             <div className="aspect-[4/3] w-full">
               <Interactive3DMockup />
             </div>
