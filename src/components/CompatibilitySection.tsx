@@ -240,7 +240,7 @@ export const CompatibilitySection = () => {
               className="group cursor-pointer"
               style={{ perspective: '1000px' }}
             >
-              <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full">
+              <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full hover:mockup-premium-glow">
                 {/* Device Mockup Container */}
                 <div className="mb-3 sm:mb-4 lg:mb-6 relative group-hover:scale-105 transition-transform duration-300">
                   <device.component />
