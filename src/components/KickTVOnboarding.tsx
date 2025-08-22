@@ -96,7 +96,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     setSelectedDuration(durationId);
   };
 
-  const totalSteps = 6;
+  const totalSteps = 5;
 
   // Auto-navigation effect - CORRIGIDO com debug
   useEffect(() => {
