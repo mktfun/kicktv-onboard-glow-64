@@ -222,7 +222,7 @@ export const CompatibilitySection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {devices.map((device, index) => (
             <motion.div
               key={device.name}
