@@ -88,8 +88,8 @@ export const Interactive3DMockup = () => {
               </motion.div>
 
               {/* Grid de canais animado */}
-              <div className="flex-1 grid grid-cols-3 gap-2">
-                {Array.from({ length: 6 }).map((_, i) => (
+              <div className="flex-1 grid grid-cols-3 gap-3">
+                {Array.from({ length: 9 }).map((_, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0.8 }}
