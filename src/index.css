@@ -343,8 +343,8 @@ All colors MUST be HSL.
   /* Responsividade para as bolhas em mobile */
   @media (max-width: 768px) {
     .blob {
-      filter: blur(110px); /* Reduz blur em mobile para performance */
-      opacity: 0.28; /* Aumenta opacidade em mobile para compensar blur menor */
+      filter: blur(100px); /* Reduz blur em mobile para performance */
+      opacity: 0.35; /* Mantém a mesma opacidade do desktop */
     }
 
     .blob-1 {
