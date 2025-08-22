@@ -198,7 +198,7 @@ All colors MUST be HSL.
     transform: scale(1.02);
   }
 
-  /* Fundo de Vidro Embaçado Animado - Nebulosa */
+  /* Fundo de Vidro Embaçado Animado - Nebulosa MELHORADA */
   .background-nebula-container {
     position: fixed;
     top: 0;
@@ -206,25 +206,26 @@ All colors MUST be HSL.
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 0;
-    pointer-events: none; /* Garante que não interfira com interações */
+    z-index: -10; /* Força para o fundo de tudo */
+    pointer-events: none;
+    background: transparent; /* Garante fundo transparente */
   }
 
-  /* Estilo base para cada "bolha" de luz */
+  /* Estilo base para cada "bolha" de luz - MAIS AGRESSIVO */
   .blob {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.12;
-    filter: blur(120px);
+    opacity: 0.08; /* Reduzido para ser mais sutil */
+    filter: blur(150px); /* Blur muito mais agressivo */
     will-change: transform;
     transition: opacity 0.3s ease;
   }
 
-  /* Bolha 1: Verde, maior, no canto superior */
+  /* Bolha 1: Verde, MAIOR, no canto superior */
   .blob-1 {
     background-color: hsl(var(--kick-green));
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     top: -150px;
     left: -150px;
     animation: move-blob-1 15s infinite alternate ease-in-out;
@@ -233,19 +234,19 @@ All colors MUST be HSL.
   /* Bolha 2: Branco/Cinza, média, no canto inferior direito */
   .blob-2 {
     background-color: #ffffff;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     bottom: -100px;
     right: -100px;
     animation: move-blob-2 18s infinite alternate ease-in-out;
     animation-delay: -5s;
   }
 
-  /* Bolha 3: Verde claro, pequena, mais ao centro */
+  /* Bolha 3: Verde claro, mais ao centro */
   .blob-3 {
     background-color: hsl(var(--kick-green-light));
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -256,12 +257,23 @@ All colors MUST be HSL.
   /* Bolha 4: Verde escuro, adicional para mais profundidade */
   .blob-4 {
     background-color: hsl(var(--kick-green-dark));
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
     top: 20%;
     right: 10%;
     animation: move-blob-4 22s infinite alternate ease-in-out;
     animation-delay: -7s;
+  }
+
+  /* Bolha 5: NOVA - Verde médio para preenchimento */
+  .blob-5 {
+    background-color: hsl(var(--kick-green));
+    width: 300px;
+    height: 300px;
+    top: 80%;
+    left: 20%;
+    animation: move-blob-5 25s infinite alternate ease-in-out;
+    animation-delay: -12s;
   }
 
   /* Interatividade sutil - as bolhas reagem ao hover na seção */
