@@ -20,16 +20,33 @@ export const PaymentStep = ({
   additionalScreens
 }: PaymentStepProps) => {
   const generateWhatsAppMessage = () => {
-    const telasText = additionalScreens > 0 ? `, ${additionalScreens} tela(s) adicional(is)` : '';
-    const adultoText = hasAdultContent ? ', Conteúdo Adulto incluído' : '';
-    const whotText = hasWhot ? ', Whot (+18) incluído' : '';
-    return `🎬 *KICK TV - Novo Pedido*
+    let message = `🎬 *KICK TV - Novo Pedido*
 
 📦 *Plano:* ${packageName}
-⏱️ *Duração:* ${duration}${telasText}${adultoText}${whotText}
+⏱️ *Duração:* ${duration}`;
+
+    if (additionalScreens > 0) {
+      message += `
+📺 *Telas Adicionais:* ${additionalScreens}`;
+    }
+
+    if (hasAdultContent) {
+      message += `
+🔞 *Conteúdo Adulto:* Incluído`;
+    }
+
+    if (hasWhot) {
+      message += `
+🔞 *Whot (+18):* Incluído`;
+    }
+
+    message += `
+
 💰 *Total:* R$ ${total},00
 
 Gostaria de finalizar minha compra! 🚀`;
+
+    return message;
   };
 
   const whatsappLink = `https://wa.me/5511956076123?text=${encodeURIComponent(generateWhatsAppMessage())}`;
