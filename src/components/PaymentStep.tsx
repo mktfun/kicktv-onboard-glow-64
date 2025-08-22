@@ -90,6 +90,12 @@ Gostaria de finalizar minha compra! 🚀`;
               <span className="text-kick-green font-semibold">Incluso</span>
             </div>
           )}
+          {hasWhot && (
+            <div className="flex justify-between items-center">
+              <span className="text-foreground">Whot (+18):</span>
+              <span className="text-kick-green font-semibold">Incluso</span>
+            </div>
+          )}
           <hr className="border-border" />
           <div className="flex justify-between items-center text-xl">
             <span className="font-bold text-foreground">Total:</span>
