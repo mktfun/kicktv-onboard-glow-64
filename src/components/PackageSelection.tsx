@@ -50,7 +50,7 @@ export const PackageSelection = ({
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-4">
         {packages.map((pkg, index) => (
           <motion.div
             key={pkg.id}
@@ -67,9 +67,9 @@ export const PackageSelection = ({
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 0.2, type: "spring" }}
-                className="absolute -top-3 -right-3 bg-kick-green rounded-full p-2"
+                className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-kick-green rounded-full p-1.5 sm:p-2"
               >
-                <Check className="w-4 h-4 text-background" />
+                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-background" />
               </motion.div>
             )}
 
@@ -79,42 +79,42 @@ export const PackageSelection = ({
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
-                className="absolute -top-3 -left-3 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg"
+                className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-2 py-1 sm:px-3 rounded-full shadow-lg"
               >
                 MAIS POPULAR
               </motion.div>
             )}
-            
+
             {/* Tooltip */}
-            <div className="absolute top-4 right-4">
-              <div 
+            <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+              <div
                 className="relative"
                 onMouseEnter={() => setShowTooltip(pkg.id)}
                 onMouseLeave={() => setShowTooltip(null)}
               >
                 <HelpCircle className="w-4 h-4 text-muted-foreground hover:text-kick-green cursor-help" />
                 {showTooltip === pkg.id && (
-                  <div className="absolute top-6 right-0 w-64 bg-popover border border-border rounded-lg p-3 text-xs text-popover-foreground shadow-lg z-10">
+                  <div className="absolute top-6 right-0 w-56 sm:w-64 bg-popover border border-border rounded-lg p-3 text-xs text-popover-foreground shadow-lg z-10">
                     {pkg.tooltip}
                   </div>
                 )}
               </div>
             </div>
-            
-            <div className="space-y-4">
+
+            <div className="space-y-3 sm:space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-kick-green">{pkg.name}</h3>
-                <div className="text-2xl font-bold text-foreground mt-2">
+                <h3 className="text-lg sm:text-xl font-bold text-kick-green">{pkg.name}</h3>
+                <div className="text-xl sm:text-2xl font-bold text-foreground mt-1 sm:mt-2">
                   {pkg.id === 'premium' || pkg.id === 'essencial' ? 'A partir de ' : ''}
                   R$ {pkg.basePrice}<span className="text-sm text-muted-foreground">/mês</span>
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 {pkg.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-2 text-sm">
+                  <div key={index} className="flex items-start space-x-2 text-xs sm:text-sm">
                     {index === 0 && pkg.id === 'premium' ? (
-                      <Flame className="w-4 h-4 text-kick-green flex-shrink-0 mt-0.5" />
+                      <Flame className="w-3 h-3 sm:w-4 sm:h-4 text-kick-green flex-shrink-0 mt-0.5" />
                     ) : benefit.includes('🔞') ? (
                       <span className="text-kick-green flex-shrink-0">🔞</span>
                     ) : benefit.includes('🚀') ? (
@@ -122,15 +122,15 @@ export const PackageSelection = ({
                     ) : benefit.includes('⭐') ? (
                       <span className="text-kick-green flex-shrink-0">⭐</span>
                     ) : (
-                      <Check className="w-4 h-4 text-kick-green flex-shrink-0 mt-0.5" />
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-kick-green flex-shrink-0 mt-0.5" />
                     )}
                     <span className="text-foreground leading-tight">{benefit.replace(/🔞|🚀|⭐/g, '').trim()}</span>
                   </div>
                 ))}
               </div>
-              
+
               {/* Indicador visual de seleção */}
-              <div className={`text-center py-3 rounded-lg font-bold transition-all duration-200 ${
+              <div className={`text-center py-2 sm:py-3 rounded-lg font-bold transition-all duration-200 text-sm ${
                 selectedPackage === pkg.id
                   ? 'bg-kick-green/20 text-kick-green border border-kick-green/30'
                   : 'bg-muted/50 text-muted-foreground'
