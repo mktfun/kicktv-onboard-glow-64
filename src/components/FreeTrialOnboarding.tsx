@@ -8,6 +8,23 @@ import { AdditionalScreensStep } from "./AdditionalScreensStep";
 import { FreeTrialAddOns } from "./FreeTrialAddOns";
 import { FreeTrialSummary } from "./FreeTrialSummary";
 
+// Duration interface
+interface Duration {
+  id: string;
+  months: number;
+  label: string;
+  price: number;
+  discount?: string;
+}
+
+// Durations for free trial (showing what they would pay for)
+const durations: Duration[] = [
+  { id: '1m', months: 1, label: '1 mês', price: 35 },
+  { id: '3m', months: 3, label: '3 meses', price: 100, discount: 'Economize R$ 5' },
+  { id: '6m', months: 6, label: '6 meses', price: 190, discount: 'Economize R$ 20' },
+  { id: '12m', months: 12, label: '12 meses', price: 350, discount: 'Economize R$ 70' }
+];
+
 interface FreeTrialOnboardingProps {
   onBackToLanding: () => void;
 }
@@ -70,7 +87,8 @@ export const FreeTrialOnboarding = ({ onBackToLanding }: FreeTrialOnboardingProp
       case 1:
         return (
           <DurationSelection
-            duration={duration}
+            durations={durations}
+            selectedDuration={duration}
             onSelectDuration={setDuration}
           />
         );
