@@ -7,11 +7,14 @@ export const AnimatedBackground = () => {
       {/* Bolha 2: Branca, média, inferior direita */}
       <div className="blob blob-2"></div>
 
-      {/* Bolha 3: Verde claro, pequena, centro */}
+      {/* Bolha 3: Verde claro, centro */}
       <div className="blob blob-3"></div>
 
-      {/* Bolha 4: Verde escuro, adicional para profundidade */}
+      {/* Bolha 4: Verde escuro, superior direita */}
       <div className="blob blob-4"></div>
+
+      {/* Bolha 5: Verde médio, inferior esquerda */}
+      <div className="blob blob-5"></div>
     </div>
   );
 };
