@@ -98,9 +98,9 @@ const LaptopMockup = () => (
 
 // Componente do Mockup do iPhone
 const iPhoneMockup = () => (
-  <div className="relative w-full h-24 flex justify-center">
+  <div className="relative w-full h-full flex justify-center">
     {/* iPhone Body */}
-    <div className="bg-gray-900 rounded-[1.5rem] p-1 shadow-2xl w-12 h-full">
+    <div className="bg-gray-900 rounded-[1.5rem] p-1 shadow-2xl w-8 sm:w-10 lg:w-12 h-full">
       {/* Screen */}
       <div className="bg-black rounded-[1.25rem] relative overflow-hidden h-full">
         {/* Notch */}
