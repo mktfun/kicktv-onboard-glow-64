@@ -265,7 +265,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
             />
           </motion.div>
         );
-      case 4:
+      case 5:
         return (
           <motion.div
             key="payment"
