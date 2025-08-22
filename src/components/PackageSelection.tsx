@@ -73,8 +73,8 @@ export const PackageSelection = ({
               </motion.div>
             )}
 
-            {/* Badge MAIS POPULAR para Premium */}
-            {pkg.id === 'premium' && (
+            {/* Badge MAIS POPULAR para Essencial */}
+            {pkg.id === 'essencial' && (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
