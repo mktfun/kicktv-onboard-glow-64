@@ -3,7 +3,7 @@ import { AnimatedBackground } from "./AnimatedBackground";
 import { Interactive3DMockup } from "./Interactive3DMockup";
 
 interface HeroSectionProps {
-  onStartFunnel: () => void;
+  onStartFunnel: (event?: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
