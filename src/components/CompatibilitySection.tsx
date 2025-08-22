@@ -240,19 +240,19 @@ export const CompatibilitySection = () => {
               className="group cursor-pointer"
               style={{ perspective: '1000px' }}
             >
-              <div className="bg-card border border-border rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full flex flex-col">
+              <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full flex flex-col">
                 {/* Device Mockup Container */}
-                <div className="h-32 mb-6 relative group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                <div className="h-16 sm:h-20 lg:h-24 mb-3 sm:mb-4 relative group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
                   <device.component />
                 </div>
 
                 {/* Texto fixo no final */}
                 <div className="mt-auto">
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-kick-green transition-colors duration-300">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 group-hover:text-kick-green transition-colors duration-300">
                     {device.name}
                   </h3>
 
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-tight">
                     {device.description}
                   </p>
                 </div>
