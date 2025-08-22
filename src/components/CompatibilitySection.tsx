@@ -242,7 +242,7 @@ export const CompatibilitySection = () => {
             >
               <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full">
                 {/* Device Mockup Container */}
-                <div className="h-20 sm:h-28 lg:h-32 mb-3 sm:mb-4 lg:mb-6 relative group-hover:scale-105 transition-transform duration-300">
+                <div className="mb-3 sm:mb-4 lg:mb-6 relative group-hover:scale-105 transition-transform duration-300">
                   <device.component />
                 </div>
 
