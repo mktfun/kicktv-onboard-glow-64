@@ -64,27 +64,35 @@ export const LandingPage = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Indicador de debug temporário */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="fixed top-4 right-4 z-[60] bg-black/80 text-white px-3 py-1 rounded text-xs">
-          Funnel: {showFunnel ? 'ABERTO' : 'fechado'}
-        </div>
-      )}
+    <main className="relative bg-black min-h-screen">
+      {/* Fundo animado fixo que fica atrás de todo o conteúdo */}
+      <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <AnimatedBackground />
+      </div>
 
-      {/* Landing Page Content with fade-out effect when funnel is open */}
-      <motion.div
-        animate={{
-          opacity: showFunnel ? 0 : 1,
-          scale: showFunnel ? 0.95 : 1
-        }}
-        transition={{ duration: 0.3 }}
-        className={showFunnel ? "pointer-events-none" : ""}
-      >
-        <HeroSection onStartFunnel={handleStartFunnel} />
-        <BenefitsSection />
-        <CompatibilitySection />
-      </motion.div>
+      {/* Container do conteúdo principal que fica na frente do fundo */}
+      <div className="relative z-10">
+        {/* Indicador de debug temporário */}
+        {process.env.NODE_ENV === 'development' && (
+          <div className="fixed top-4 right-4 z-[60] bg-black/80 text-white px-3 py-1 rounded text-xs">
+            Funnel: {showFunnel ? 'ABERTO' : 'fechado'}
+          </div>
+        )}
+
+        {/* Landing Page Content with fade-out effect when funnel is open */}
+        <motion.div
+          animate={{
+            opacity: showFunnel ? 0 : 1,
+            scale: showFunnel ? 0.95 : 1
+          }}
+          transition={{ duration: 0.3 }}
+          className={showFunnel ? "pointer-events-none" : ""}
+        >
+          <HeroSection onStartFunnel={handleStartFunnel} />
+          <BenefitsSection />
+          <CompatibilitySection />
+        </motion.div>
+      </div>
 
       {/* Modal Tela-Cheia para o Funil */}
       <AnimatePresence>
@@ -149,6 +157,6 @@ export const LandingPage = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 };
