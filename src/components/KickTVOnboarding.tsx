@@ -177,6 +177,11 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
         setSelectedPackage('');
       } else if (currentStep === 4) {
         setSelectedDuration('');
+        // If Ultra plan, go back to step 1 (package selection) since we skip steps 2 and 3
+        if (selectedPackage === 'ultra') {
+          setCurrentStep(1);
+          return;
+        }
       }
       setCurrentStep(currentStep - 1);
     }
