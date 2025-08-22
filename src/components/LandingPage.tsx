@@ -66,7 +66,7 @@ export const LandingPage = () => {
 
     // Proteção contra eventos não confiáveis ou automáticos
     if (event && !event.isTrusted) {
-      console.warn('Tentativa de abertura do teste gratuito por evento não confiável bloqueada');
+      console.warn('Tentativa de abertura do teste por R$ 5 por evento não confiável bloqueada');
       return;
     }
 
@@ -78,13 +78,13 @@ export const LandingPage = () => {
 
     // Verificar se já está aberto para evitar múltiplas aberturas
     if (showFreeTrial) {
-      console.warn('Teste gratuito já está aberto');
+      console.warn('Teste por R$ 5 já está aberto');
       return;
     }
 
     lastInteractionRef.current = now;
 
-    console.log('Teste gratuito aberto por interação do usuário', {
+    console.log('Teste por R$ 5 aberto por interação do usuário', {
       eventType: event?.type,
       timestamp: new Date().toISOString(),
       isTrusted: event?.isTrusted
