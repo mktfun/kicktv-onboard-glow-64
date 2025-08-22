@@ -129,12 +129,14 @@ export const PackageSelection = ({
                 ))}
               </div>
               
-              <Button
-                variant={selectedPackage === pkg.id ? "kick" : "kick-outline"}
-                className="w-full hover:scale-105 transition-transform duration-200"
-              >
-                {selectedPackage === pkg.id ? "Selecionado" : "Selecionar"}
-              </Button>
+              {/* Indicador visual de seleção */}
+              <div className={`text-center py-3 rounded-lg font-bold transition-all duration-200 ${
+                selectedPackage === pkg.id
+                  ? 'bg-kick-green/20 text-kick-green border border-kick-green/30'
+                  : 'bg-muted/50 text-muted-foreground'
+              }`}>
+                {selectedPackage === pkg.id ? '✓ Selecionado' : 'Clique para selecionar'}
+              </div>
             </div>
           </motion.div>
         ))}
