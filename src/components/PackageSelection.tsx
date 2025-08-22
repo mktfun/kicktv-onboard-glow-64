@@ -19,7 +19,9 @@ export const PackageSelection = ({
   selectedPackage,
   onSelectPackage,
   hasAdultContent,
-  onToggleAdultContent
+  onToggleAdultContent,
+  hasWhot,
+  onToggleWhot
 }: PackageSelectionProps) => {
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
 
