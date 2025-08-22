@@ -42,10 +42,10 @@ export const PackageSelection = ({
   };
 
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold text-kick-green">Qual a sua vibe?</h2>
-        <p className="text-kick-gray text-lg">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="text-center space-y-3 sm:space-y-4 px-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-kick-green">Qual a sua vibe?</h2>
+        <p className="text-kick-gray text-base sm:text-lg">
           Escolha o plano ideal para você
         </p>
       </div>
