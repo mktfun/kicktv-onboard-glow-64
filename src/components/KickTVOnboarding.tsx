@@ -235,6 +235,22 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       case 3:
         return (
           <motion.div
+            key="additional-screens"
+            variants={stepVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={transition}
+          >
+            <AdditionalScreensStep
+              additionalScreens={additionalScreens}
+              onUpdateScreens={setAdditionalScreens}
+            />
+          </motion.div>
+        );
+      case 4:
+        return (
+          <motion.div
             key="duration-selection"
             variants={stepVariants}
             initial="initial"
