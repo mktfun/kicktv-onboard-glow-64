@@ -3,9 +3,9 @@ import { Play } from "lucide-react";
 
 // Componente do Mockup da Smart TV
 const TVMockup = () => (
-  <div className="relative w-full h-24 flex justify-center">
+  <div className="relative w-full h-full flex justify-center">
     {/* TV Frame */}
-    <div className="bg-gray-900 rounded-lg p-1.5 shadow-2xl aspect-video h-full">
+    <div className="bg-gray-900 rounded-lg p-1 sm:p-1.5 shadow-2xl aspect-video h-full max-w-full">
       {/* TV Screen */}
       <div className="bg-black rounded aspect-video relative overflow-hidden h-full">
         {/* Simulated TV Content */}
