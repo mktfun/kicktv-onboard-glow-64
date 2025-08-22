@@ -240,19 +240,22 @@ export const CompatibilitySection = () => {
               className="group cursor-pointer"
               style={{ perspective: '1000px' }}
             >
-              <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full hover:mockup-premium-glow">
-                {/* Device Mockup Container */}
-                <div className="mb-3 sm:mb-4 lg:mb-6 relative group-hover:scale-105 transition-transform duration-300">
+              <div className="flex flex-col h-full bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 hover:mockup-premium-glow">
+                {/* Device Mockup Container - Flex-grow para centralizar */}
+                <div className="flex-grow flex items-center justify-center relative group-hover:scale-105 transition-transform duration-300">
                   <device.component />
                 </div>
 
-                <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 group-hover:text-kick-green transition-colors duration-300">
-                  {device.name}
-                </h3>
+                {/* Texto fixo no final */}
+                <div className="text-center mt-4">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 group-hover:text-kick-green transition-colors duration-300">
+                    {device.name}
+                  </h3>
 
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  {device.description}
-                </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {device.description}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
