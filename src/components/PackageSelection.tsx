@@ -13,11 +13,7 @@ interface PackageSelectionProps {
 export const PackageSelection = ({
   packages,
   selectedPackage,
-  onSelectPackage,
-  hasAdultContent,
-  onToggleAdultContent,
-  hasWhot,
-  onToggleWhot
+  onSelectPackage
 }: PackageSelectionProps) => {
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
 
