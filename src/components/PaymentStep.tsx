@@ -20,31 +20,31 @@ export const PaymentStep = ({
   additionalScreens
 }: PaymentStepProps) => {
   const generateWhatsAppMessage = () => {
-    let message = `🎬 *KICK TV - Novo Pedido*
+    let message = `*KICK TV - Novo Pedido*
 
-📦 *Plano:* ${packageName}
-⏱️ *Duração:* ${duration}`;
+*Plano:* ${packageName}
+*Duracao:* ${duration}`;
 
     if (additionalScreens > 0) {
       message += `
-📺 *Telas Adicionais:* ${additionalScreens}`;
+*Telas Adicionais:* ${additionalScreens}`;
     }
 
     if (hasAdultContent) {
       message += `
-🔞 *Conteúdo Adulto:* Incluído`;
+*Conteudo Adulto:* Incluido`;
     }
 
     if (hasWhot) {
       message += `
-🔞 *Whot (+18):* Incluído`;
+*Whot (+18):* Incluido`;
     }
 
     message += `
 
-💰 *Total:* R$ ${total},00
+*Total:* R$ ${total},00
 
-Gostaria de finalizar minha compra! 🚀`;
+Gostaria de finalizar minha compra!`;
 
     return message;
   };
