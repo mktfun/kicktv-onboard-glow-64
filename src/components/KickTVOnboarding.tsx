@@ -64,10 +64,10 @@ const packages: Package[] = [
     benefits: [
       'Acesso via app exclusivo Krator+',
       'Interface premium e organizada',
-      'Conteúdo Adulto (Whot) incluso',
+      'Whot (+18) incluso via app Nexus',
       '1 Tela (preço fixo, sem extras)'
     ],
-    tooltip: 'A experiência definitiva. O plano Ultra te dá acesso através do aplicativo Krator+, conhecido pela sua interface moderna e facilidade de uso em qualquer Smart TV, além de todo o conteúdo adulto já incluso.'
+    tooltip: 'A experiência definitiva. O plano Ultra te dá acesso através do aplicativo Krator+, conhecido pela sua interface moderna e facilidade de uso em qualquer Smart TV, além de acesso ao Whot (+18) via aplicativo exclusivo Nexus já incluso no preço.'
   }
 ];
 
