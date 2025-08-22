@@ -3,9 +3,9 @@ import { Play } from "lucide-react";
 
 // Componente do Mockup da Smart TV
 const TVMockup = () => (
-  <div className="relative w-full aspect-video">
+  <div className="relative w-full h-24 flex justify-center">
     {/* TV Frame */}
-    <div className="bg-gray-900 rounded-lg p-2 shadow-2xl h-full">
+    <div className="bg-gray-900 rounded-lg p-1.5 shadow-2xl aspect-video h-full">
       {/* TV Screen */}
       <div className="bg-black rounded aspect-video relative overflow-hidden h-full">
         {/* Simulated TV Content */}
@@ -49,11 +49,11 @@ const TVMockup = () => (
 
 // Componente do Mockup do MacBook
 const LaptopMockup = () => (
-  <div className="relative w-full aspect-video">
+  <div className="relative w-full h-24 flex justify-center">
     {/* MacBook Body */}
-    <div className="bg-gray-300 rounded-t-xl p-2 shadow-2xl h-full">
+    <div className="bg-gray-300 rounded-t-xl p-1.5 shadow-2xl aspect-video h-full">
       {/* Screen */}
-      <div className="bg-black rounded-t-lg aspect-video relative overflow-hidden h-full">
+      <div className="bg-black rounded-t-lg relative overflow-hidden h-full">
         {/* Browser Chrome */}
         <div className="bg-gray-700 px-2 py-1 flex items-center space-x-1">
           <div className="flex space-x-1">
@@ -92,15 +92,15 @@ const LaptopMockup = () => (
     </div>
 
     {/* MacBook Base */}
-    <div className="bg-gray-300 h-1 rounded-b-xl"></div>
+    <div className="bg-gray-300 h-0.5 rounded-b-xl"></div>
   </div>
 );
 
 // Componente do Mockup do iPhone
 const iPhoneMockup = () => (
-  <div className="relative w-full aspect-[9/16] flex justify-center">
+  <div className="relative w-full h-24 flex justify-center">
     {/* iPhone Body */}
-    <div className="bg-gray-900 rounded-[1.5rem] p-1 shadow-2xl w-20 h-full max-w-[60px]">
+    <div className="bg-gray-900 rounded-[1.5rem] p-1 shadow-2xl w-12 h-full">
       {/* Screen */}
       <div className="bg-black rounded-[1.25rem] relative overflow-hidden h-full">
         {/* Notch */}
@@ -144,9 +144,9 @@ const iPhoneMockup = () => (
 
 // Componente do Mockup do Android
 const AndroidMockup = () => (
-  <div className="relative w-full aspect-[9/16] flex justify-center">
+  <div className="relative w-full h-24 flex justify-center">
     {/* Android Body */}
-    <div className="bg-gray-800 rounded-2xl p-1 shadow-2xl w-20 h-full max-w-[60px]">
+    <div className="bg-gray-800 rounded-2xl p-1 shadow-2xl w-12 h-full">
       {/* Screen */}
       <div className="bg-black rounded-xl relative overflow-hidden h-full">
         {/* App Content */}
@@ -222,7 +222,7 @@ export const CompatibilitySection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {devices.map((device, index) => (
             <motion.div
               key={device.name}
@@ -240,19 +240,19 @@ export const CompatibilitySection = () => {
               className="group cursor-pointer"
               style={{ perspective: '1000px' }}
             >
-              <div className="flex flex-col h-full bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 hover:mockup-premium-glow">
-                {/* Device Mockup Container - Flex-grow para centralizar */}
-                <div className="flex-grow flex items-center justify-center relative group-hover:scale-105 transition-transform duration-300">
+              <div className="bg-card border border-border rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-2xl hover:shadow-kick-green/10 transition-all duration-300 hover:border-kick-green/20 text-center h-full flex flex-col">
+                {/* Device Mockup Container */}
+                <div className="h-32 mb-6 relative group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
                   <device.component />
                 </div>
 
                 {/* Texto fixo no final */}
-                <div className="text-center mt-4">
-                  <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 group-hover:text-kick-green transition-colors duration-300">
+                <div className="mt-auto">
+                  <h3 className="text-lg font-bold mb-2 group-hover:text-kick-green transition-colors duration-300">
                     {device.name}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground">
                     {device.description}
                   </p>
                 </div>
