@@ -131,7 +131,7 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
       monthlyPrice += 30;
     }
 
-    // Calcular total baseado na duração (duration.price é o preço total para aquela duração)
+    // Calcular total baseado na duração (duration.price é o preço total para aquela duraç��o)
     // Para manter compatibilidade, vamos usar a estrutura atual mas aplicar a nova lógica
     const totalForDuration = monthlyPrice * duration.months;
 
@@ -211,10 +211,6 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
               packages={packages}
               selectedPackage={selectedPackage}
               onSelectPackage={setSelectedPackage}
-              hasAdultContent={hasAdultContent}
-              onToggleAdultContent={setHasAdultContent}
-              hasWhot={hasWhot}
-              onToggleWhot={setHasWhot}
             />
           </motion.div>
         );
