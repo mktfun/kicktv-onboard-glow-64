@@ -118,7 +118,7 @@ export const LandingPage = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2, delay: 0.4 }}
-                className="flex justify-end p-4 sm:p-6"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10"
               >
                 <Button
                   onClick={handleBackToLanding}
