@@ -99,7 +99,7 @@ export const LandingPage = () => {
         {showFunnel && (
           <motion.div
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(32px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(48px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed inset-0 z-50 bg-black/80"
