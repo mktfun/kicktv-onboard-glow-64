@@ -17,6 +17,30 @@ export const PackageSelection = ({
 }: PackageSelectionProps) => {
   const [showTooltip, setShowTooltip] = useState<string | null>(null);
 
+  const getCardStyles = (packageId: string, isSelected: boolean) => {
+    const baseClasses = "relative border-2 rounded-2xl p-8 cursor-pointer transition-all duration-300 ";
+
+    switch (packageId) {
+      case 'essencial':
+        return baseClasses + (isSelected
+          ? "bg-card border-kick-green shadow-lg shadow-kick-green/30 scale-105"
+          : "bg-card border-border hover:border-kick-green/50 hover:shadow-lg hover:scale-[1.02]");
+
+      case 'premium':
+        return baseClasses + (isSelected
+          ? "bg-gradient-to-br from-card to-kick-green/5 border-gradient-animated shadow-xl shadow-kick-green/40 scale-105"
+          : "bg-card border-border hover:border-kick-green/50 hover:shadow-xl hover:scale-[1.02] relative");
+
+      case 'ultra':
+        return baseClasses + (isSelected
+          ? "bg-gradient-to-br from-card to-kick-dark/50 border-kick-green shadow-2xl shadow-kick-green/50 scale-105 glow-green-intense"
+          : "bg-gradient-to-br from-card to-kick-dark/20 border-border hover:border-kick-green/60 hover:shadow-2xl hover:scale-[1.02] hover:shadow-kick-green/30");
+
+      default:
+        return baseClasses + "bg-card border-border";
+    }
+  };
+
   return (
     <div className="space-y-8">
       <div className="text-center space-y-4">
