@@ -8,12 +8,12 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onStartFunnel }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen flex items-center justify-center bg-black px-4 sm:px-6 lg:px-8 relative overflow-hidden py-8 sm:py-12 lg:py-0">
       {/* Fundo abstrato animado */}
       <AnimatedBackground />
-      
-      {/* Container Principal - Blueprint exato */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+
+      {/* Container Principal - Mobile-first otimizado */}
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 relative z-10">
         
         {/* Coluna da Esquerda - O Texto Persuasivo */}
         <motion.div
