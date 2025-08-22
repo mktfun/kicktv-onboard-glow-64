@@ -72,17 +72,17 @@ export const AddOnsStep = ({
             <div className="space-y-2 mb-4">
               {selectedPackage === 'essencial' && (
                 <p className="text-sm text-muted-foreground">
-                  Acesso a conteúdo adulto exclusivo <span className="font-semibold">apenas no navegador</span>
+                  Acesso a conteúdo adulto exclusivo
                 </p>
               )}
               {selectedPackage === 'premium' && (
                 <p className="text-sm text-muted-foreground">
-                  Acesso a conteúdo adulto exclusivo <span className="font-semibold">via app Nexus (apenas navegador)</span>
+                  Acesso a conteúdo adulto exclusivo
                 </p>
               )}
               {selectedPackage === 'ultra' && (
                 <p className="text-sm text-muted-foreground">
-                  Conteúdo adulto premium já incluído no seu plano Ultra via <span className="font-semibold">app Nexus exclusivo (apenas navegador)</span>
+                  Conteúdo adulto premium já incluído no seu plano Ultra
                 </p>
               )}
             </div>
