@@ -105,10 +105,12 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
     return () => clearTimeout(timer);
   }, [currentStep, selectedDuration]);
 
-  // Habilitar Whot automaticamente para plano Ultra
+  // Reset Whot when package changes (except for Ultra which includes it)
   useEffect(() => {
-    if (selectedPackage === 'ultra') {
-      setHasWhot(true);
+    if (selectedPackage !== 'ultra') {
+      setHasWhot(false);
+    } else {
+      setHasWhot(true); // Ultra includes Whot by default
     }
   }, [selectedPackage]);
 
