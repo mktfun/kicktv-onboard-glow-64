@@ -232,6 +232,12 @@ All colors MUST be HSL.
     animation-delay: -7s;
   }
 
+  /* Interatividade sutil - as bolhas reagem ao hover na seção */
+  .background-nebula-container:hover .blob {
+    opacity: 0.18;
+    filter: blur(110px);
+  }
+
   /* Animações que movem as bolhas */
   @keyframes move-blob-1 {
     from {
