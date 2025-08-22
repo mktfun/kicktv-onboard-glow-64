@@ -65,17 +65,17 @@ export const Interactive3DMockup = () => {
                 transition={{ delay: 0.2 }}
                 className="flex justify-between items-center mb-4"
               >
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-kick-green rounded-full flex items-center justify-center">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
                     <motion.div
                       animate={{ rotate: [0, 360] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                      className="w-4 h-4 text-background"
+                      className="w-6 h-6 text-black font-bold"
                     >
                       ⚡
                     </motion.div>
                   </div>
-                  <span className="text-kick-green font-bold text-sm">KICK TV</span>
+                  <span className="text-green-400 font-bold text-lg">KICK TV</span>
                 </div>
                 <motion.div
                   animate={{ opacity: [1, 0.5, 1] }}
