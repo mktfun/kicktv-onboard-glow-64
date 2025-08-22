@@ -78,8 +78,8 @@ const LaptopMockup = () => (
           <div className="space-y-1">
             {Array.from({length: 4}).map((_, i) => (
               <div key={i} className="flex items-center space-x-2 bg-gray-800/40 rounded p-1">
-                <div className="w-8 h-5 bg-kick-green/30 rounded flex items-center justify-center">
-                  <Play className="w-2 h-2 text-kick-green" />
+                <div className="w-6 sm:w-8 h-4 sm:h-5 bg-kick-green/30 rounded flex items-center justify-center">
+                  <Play className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-kick-green" />
                 </div>
                 <div className="flex-1">
                   <div className="w-12 h-1 bg-gray-600 rounded"></div>
