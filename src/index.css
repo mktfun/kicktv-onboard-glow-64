@@ -182,9 +182,10 @@ All colors MUST be HSL.
   .blob {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.15;
-    filter: blur(100px);
+    opacity: 0.12;
+    filter: blur(120px);
     will-change: transform;
+    transition: opacity 0.3s ease;
   }
 
   /* Bolha 1: Verde, maior, no canto superior */
