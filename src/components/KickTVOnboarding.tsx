@@ -105,11 +105,8 @@ export const KickTVOnboarding = ({ onBackToLanding }: KickTVOnboardingProps) => 
         timer = setTimeout(() => setCurrentStep(3), 250);
       }
     } else if (currentStep === 3 && selectedDuration) {
-      // After duration selection, go to summary
+      // After duration selection, go directly to payment
       timer = setTimeout(() => setCurrentStep(4), 250);
-    } else if (currentStep === 4) {
-      // After showing summary, go to payment
-      timer = setTimeout(() => setCurrentStep(5), 2000); // 2 segundos para ver o resumo
     }
 
     return () => clearTimeout(timer);
