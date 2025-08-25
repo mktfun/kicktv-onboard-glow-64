@@ -9,12 +9,14 @@ interface CustomerSupportOnboardingProps {
 }
 
 type CustomerType = 'new' | 'existing';
+type Plan = 'starter' | 'premium' | 'krator' | 'nexus';
 type Device = 'tv' | 'android' | 'iphone' | 'mac' | 'windows' | 'chromecast' | 'android-tv' | 'tv-box';
 type InstallationStatus = 'installed' | 'not-installed';
 type SupportType = 'app-problem' | 'connection-issue' | 'bug' | 'login-issue' | 'missing-content' | 'other';
 
 interface SupportData {
   customerType: CustomerType | null;
+  plan: Plan | null;
   device: Device | null;
   hasInstalled: InstallationStatus | null;
   supportType: SupportType | null;
@@ -25,13 +27,21 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
   const [currentStep, setCurrentStep] = useState(1);
   const [supportData, setSupportData] = useState<SupportData>({
     customerType: null,
+    plan: null,
     device: null,
     hasInstalled: null,
     supportType: null,
     description: ''
   });
 
-  const devices = [
+  const plans = [
+    { id: 'starter' as Plan, name: 'Starter', description: 'Plano básico com canais essenciais' },
+    { id: 'premium' as Plan, name: 'Premium', description: 'Plano completo com todos os canais' },
+    { id: 'krator' as Plan, name: 'Krator+', description: 'Plano especializado (não disponível para iPhone/Mac)' },
+    { id: 'nexus' as Plan, name: 'Nexus', description: 'Plano avançado (não disponível para iPhone/Mac)' }
+  ];
+
+  const allDevices = [
     { id: 'tv' as Device, name: 'Smart TV', icon: Tv },
     { id: 'android' as Device, name: 'Android', icon: Smartphone },
     { id: 'iphone' as Device, name: 'iPhone', icon: Smartphone },
@@ -41,6 +51,16 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
     { id: 'android-tv' as Device, name: 'Android TV', icon: Tv },
     { id: 'tv-box' as Device, name: 'TV Box', icon: Monitor }
   ];
+
+  // Filter devices based on selected plan
+  const getAvailableDevices = () => {
+    if (supportData.plan === 'krator' || supportData.plan === 'nexus') {
+      return allDevices.filter(device => device.id !== 'iphone' && device.id !== 'mac');
+    }
+    return allDevices;
+  };
+
+  const devices = getAvailableDevices();
 
   const supportTypes = [
     { id: 'app-problem' as SupportType, name: 'Problema no aplicativo', icon: Bug, description: 'App travando ou fechando' },
@@ -53,39 +73,42 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
 
   const handleCustomerTypeSelect = (type: CustomerType) => {
     setSupportData(prev => ({ ...prev, customerType: type }));
-    if (type === 'new') {
-      setCurrentStep(2);
-    } else {
-      setCurrentStep(2);
-    }
+    setCurrentStep(2); // Go to plan selection
+  };
+
+  const handlePlanSelect = (plan: Plan) => {
+    setSupportData(prev => ({ ...prev, plan, device: null })); // Reset device when plan changes
+    setCurrentStep(3); // Go to device selection
   };
 
   const handleDeviceSelect = (device: Device) => {
     setSupportData(prev => ({ ...prev, device }));
-    setCurrentStep(3);
+    setCurrentStep(4); // Go to installation status
   };
 
   const handleInstallationStatus = (status: InstallationStatus) => {
     setSupportData(prev => ({ ...prev, hasInstalled: status }));
     if (status === 'installed') {
-      setCurrentStep(4);
+      setCurrentStep(5); // Go to support type selection
     } else {
-      setCurrentStep(5); // Tutorial step
+      setCurrentStep(6); // Go to tutorial step
     }
   };
 
   const handleSupportTypeSelect = (type: SupportType) => {
     setSupportData(prev => ({ ...prev, supportType: type }));
-    setCurrentStep(6); // Final step
+    setCurrentStep(7); // Final step
   };
 
   const generateWhatsAppMessage = () => {
-    const deviceName = devices.find(d => d.id === supportData.device)?.name || '';
+    const planName = plans.find(p => p.id === supportData.plan)?.name || '';
+    const deviceName = allDevices.find(d => d.id === supportData.device)?.name || '';
     const supportTypeName = supportTypes.find(s => s.id === supportData.supportType)?.name || '';
 
     const message = `*SOLICITAÇÃO DE SUPORTE KICK TV*
 
 *Tipo de Cliente:* ${supportData.customerType === 'existing' ? 'Cliente Existente' : 'Novo Cliente'}
+*Plano:* ${planName}
 *Dispositivo:* ${deviceName}
 *IPTV Instalado:* ${supportData.hasInstalled === 'installed' ? 'Sim' : 'Não'}
 *Tipo de Suporte:* ${supportTypeName}
@@ -159,8 +182,44 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
           </motion.div>
         )}
 
-        {/* Step 2: Device Selection */}
+        {/* Step 2: Plan Selection */}
         {currentStep === 2 && (
+          <motion.div
+            key="plan-selection"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            className="space-y-6"
+          >
+            <Card className="bg-white/5 border-white/10">
+              <CardHeader>
+                <CardTitle className="text-white text-xl text-center">
+                  Qual é o seu plano?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {plans.map((plan) => (
+                    <Button
+                      key={plan.id}
+                      onClick={() => handlePlanSelect(plan.id)}
+                      variant="outline"
+                      className="h-20 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4"
+                    >
+                      <div>
+                        <div className="font-semibold">{plan.name}</div>
+                        <div className="text-sm opacity-70">{plan.description}</div>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
+
+        {/* Step 3: Device Selection */}
+        {currentStep === 3 && (
           <motion.div
             key="device-selection"
             initial={{ opacity: 0, x: 50 }}
@@ -172,6 +231,11 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
               <CardHeader>
                 <CardTitle className="text-white text-xl text-center">
                   Qual dispositivo você está usando?
+                  {(supportData.plan === 'krator' || supportData.plan === 'nexus') && (
+                    <p className="text-sm text-yellow-400 mt-2">
+                      * iPhone e Mac não são compatíveis com o plano {plans.find(p => p.id === supportData.plan)?.name}
+                    </p>
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -198,8 +262,8 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
           </motion.div>
         )}
 
-        {/* Step 3: Installation Status */}
-        {currentStep === 3 && (
+        {/* Step 4: Installation Status */}
+        {currentStep === 4 && (
           <motion.div
             key="installation-status"
             initial={{ opacity: 0, x: 50 }}
@@ -210,7 +274,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
             <Card className="bg-white/5 border-white/10">
               <CardHeader>
                 <CardTitle className="text-white text-xl text-center">
-                  Você já instalou o IPTV no seu {devices.find(d => d.id === supportData.device)?.name}?
+                  Você já instalou o IPTV no seu {allDevices.find(d => d.id === supportData.device)?.name}?
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -241,8 +305,8 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
           </motion.div>
         )}
 
-        {/* Step 4: Support Type Selection */}
-        {currentStep === 4 && (
+        {/* Step 5: Support Type Selection */}
+        {currentStep === 5 && (
           <motion.div
             key="support-type"
             initial={{ opacity: 0, x: 50 }}
@@ -283,8 +347,8 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
           </motion.div>
         )}
 
-        {/* Step 5: Tutorial (for not installed) */}
-        {currentStep === 5 && (
+        {/* Step 6: Tutorial (for not installed) */}
+        {currentStep === 6 && (
           <motion.div
             key="tutorial"
             initial={{ opacity: 0, x: 50 }}
@@ -301,21 +365,21 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
               <CardContent className="text-center space-y-6">
                 <div className="text-gray-300">
                   <p className="mb-4">
-                    Vamos te ajudar a instalar o IPTV no seu {devices.find(d => d.id === supportData.device)?.name}!
+                    Vamos te ajudar a instalar o IPTV {plans.find(p => p.id === supportData.plan)?.name} no seu {allDevices.find(d => d.id === supportData.device)?.name}!
                   </p>
                   <div className="bg-white/10 rounded-lg p-6 mb-6">
                     <PlayCircle className="h-16 w-16 mx-auto mb-4 text-kick-green" />
                     <p className="text-lg font-semibold mb-2">Vídeo Tutorial</p>
                     <p className="text-sm opacity-70">
-                      Assista ao passo a passo completo para instalação no seu dispositivo
+                      Assista ao passo a passo completo para instalação do plano {plans.find(p => p.id === supportData.plan)?.name} no seu dispositivo
                     </p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <Button
                     onClick={() => {
-                      // Here you would open the tutorial video
-                      console.log('Opening tutorial for:', supportData.device);
+                      // Here you would open the tutorial video based on plan and device
+                      console.log('Opening tutorial for plan:', supportData.plan, 'device:', supportData.device);
                     }}
                     className="w-full bg-kick-green text-black hover:bg-kick-green-dark"
                   >
@@ -323,7 +387,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                     Assistir Tutorial
                   </Button>
                   <Button
-                    onClick={() => setCurrentStep(4)}
+                    onClick={() => setCurrentStep(5)}
                     variant="outline"
                     className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
                   >
@@ -335,8 +399,8 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
           </motion.div>
         )}
 
-        {/* Step 6: Final Step - Generate WhatsApp */}
-        {currentStep === 6 && (
+        {/* Step 7: Final Step - Generate WhatsApp */}
+        {currentStep === 7 && (
           <motion.div
             key="final"
             initial={{ opacity: 0, x: 50 }}
@@ -392,7 +456,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
         </Button>
         
         <div className="text-white text-sm">
-          Passo {currentStep} de {supportData.hasInstalled === 'not-installed' ? '5' : '6'}
+          Passo {currentStep} de {supportData.hasInstalled === 'not-installed' ? '6' : '7'}
         </div>
       </div>
     </div>
