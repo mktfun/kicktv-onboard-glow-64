@@ -385,7 +385,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                   Tutorial de Instalação
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-center space-y-6">
+              <CardContent className="space-y-6">
                 {(() => {
                   const tutorialConfig = getTutorialConfig(supportData.plan!, supportData.device!);
                   const planName = plans.find(p => p.id === supportData.plan)?.name;
@@ -393,40 +393,48 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
 
                   return (
                     <div className="text-gray-300">
-                      <p className="mb-4">
-                        Vamos te ajudar a instalar o IPTV {planName} no seu {deviceName}!
-                      </p>
+                      <div className="text-center mb-6">
+                        <h3 className="text-xl font-semibold text-white mb-2">
+                          Tutorial de Instalação
+                        </h3>
+                        <p className="text-gray-300">
+                          Vamos te ajudar a instalar o {planName} no seu {deviceName}!
+                        </p>
+                      </div>
 
                       {tutorialConfig ? (
-                        <div className="space-y-4">
-                          {tutorialConfig.videoUrl && (
-                            <div className="bg-white/10 rounded-lg p-6">
-                              <PlayCircle className="h-16 w-16 mx-auto mb-4 text-kick-green" />
-                              <p className="text-lg font-semibold mb-2">Vídeo Tutorial</p>
-                              <p className="text-sm opacity-70 mb-4">
+                        <div className="space-y-6">
+                          {/* Video Section */}
+                          {tutorialConfig.videoId && (
+                            <div className="bg-white/5 rounded-lg p-4">
+                              <div className="aspect-video w-full rounded-lg overflow-hidden mb-4">
+                                <iframe
+                                  width="100%"
+                                  height="100%"
+                                  src={`https://www.youtube.com/embed/${tutorialConfig.videoId}`}
+                                  title="Tutorial Video"
+                                  frameBorder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                  className="w-full h-full"
+                                ></iframe>
+                              </div>
+                              <p className="text-sm text-center opacity-70">
                                 {tutorialConfig.additionalInfo}
                               </p>
-                              <Button
-                                onClick={() => {
-                                  if (tutorialConfig.videoUrl) {
-                                    window.open(tutorialConfig.videoUrl, '_blank');
-                                  }
-                                }}
-                                className="w-full bg-kick-green text-black hover:bg-kick-green-dark"
-                              >
-                                <PlayCircle className="h-5 w-5 mr-2" />
-                                Assistir Tutorial
-                              </Button>
                             </div>
                           )}
 
+                          {/* Download Section */}
                           {tutorialConfig.downloadUrl && (
-                            <div className="bg-white/10 rounded-lg p-6">
-                              <Download className="h-16 w-16 mx-auto mb-4 text-blue-400" />
-                              <p className="text-lg font-semibold mb-2">Download do App</p>
-                              <p className="text-sm opacity-70 mb-4">
-                                Baixe o aplicativo para {deviceName}
-                              </p>
+                            <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
+                              <div className="flex items-center space-x-3 mb-3">
+                                <Download className="h-6 w-6 text-blue-400" />
+                                <div>
+                                  <p className="font-semibold text-blue-400">Download Direto</p>
+                                  <p className="text-sm opacity-70">Baixe o aplicativo</p>
+                                </div>
+                              </div>
                               <Button
                                 onClick={() => {
                                   if (tutorialConfig.downloadUrl) {
@@ -436,16 +444,42 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                                 variant="outline"
                                 className="w-full bg-blue-500/20 border-blue-400 text-blue-400 hover:bg-blue-500 hover:text-white"
                               >
-                                <Download className="h-5 w-5 mr-2" />
-                                Baixar App
+                                <Download className="h-4 w-4 mr-2" />
+                                Baixar Aplicativo
                               </Button>
                             </div>
                           )}
+
+                          {/* Step by Step Instructions */}
+                          <div className="bg-white/5 rounded-lg p-4">
+                            <div className="flex items-center space-x-2 mb-4">
+                              <div className="bg-kick-green rounded-full p-2">
+                                <AlertCircle className="h-5 w-5 text-black" />
+                              </div>
+                              <h4 className="font-semibold text-white">Passo a Passo</h4>
+                            </div>
+
+                            <div className="space-y-4">
+                              {tutorialConfig.steps.map((step, index) => (
+                                <div key={index} className="flex space-x-4">
+                                  <div className="flex-shrink-0">
+                                    <div className="w-8 h-8 bg-kick-green rounded-full flex items-center justify-center">
+                                      <span className="text-black text-sm font-bold">{step.step}</span>
+                                    </div>
+                                  </div>
+                                  <div className="flex-1">
+                                    <h5 className="font-semibold text-white mb-1">{step.title}</h5>
+                                    <p className="text-sm text-gray-300 leading-relaxed">{step.description}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       ) : (
-                        <div className="bg-yellow-500/20 rounded-lg p-6">
+                        <div className="bg-yellow-500/20 rounded-lg p-6 text-center">
                           <AlertCircle className="h-16 w-16 mx-auto mb-4 text-yellow-400" />
-                          <p className="text-lg font-semibold mb-2">Tutorial em Preparação</p>
+                          <p className="text-lg font-semibold mb-2 text-white">Tutorial em Preparação</p>
                           <p className="text-sm opacity-70">
                             O tutorial para {planName} em {deviceName} ainda está sendo preparado.
                             Entre em contato conosco para receber suporte personalizado.
@@ -453,7 +487,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                         </div>
                       )}
 
-                      <div className="mt-6">
+                      <div className="text-center">
                         <Button
                           onClick={() => setCurrentStep(5)}
                           variant="outline"
