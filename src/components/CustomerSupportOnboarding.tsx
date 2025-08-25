@@ -207,22 +207,20 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                   Qual é o seu plano?
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid gap-4 md:grid-cols-2">
-                  {plans.map((plan) => (
-                    <Button
-                      key={plan.id}
-                      onClick={() => handlePlanSelect(plan.id)}
-                      variant="outline"
-                      className="h-20 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4"
-                    >
-                      <div>
-                        <div className="font-semibold">{plan.name}</div>
-                        <div className="text-sm opacity-70">{plan.description}</div>
-                      </div>
-                    </Button>
-                  ))}
-                </div>
+              <CardContent className="space-y-4">
+                {plans.map((plan) => (
+                  <Button
+                    key={plan.id}
+                    onClick={() => handlePlanSelect(plan.id)}
+                    variant="outline"
+                    className="w-full h-auto min-h-[80px] bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4 flex items-start"
+                  >
+                    <div className="text-left">
+                      <div className="font-semibold text-base mb-1">{plan.name}</div>
+                      <div className="text-sm opacity-70 leading-relaxed">{plan.description}</div>
+                    </div>
+                  </Button>
+                ))}
               </CardContent>
             </Card>
           </motion.div>
