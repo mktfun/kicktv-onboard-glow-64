@@ -333,13 +333,13 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                         key={support.id}
                         onClick={() => handleSupportTypeSelect(support.id)}
                         variant="outline"
-                        className="h-20 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4"
+                        className="h-20 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4 flex items-center justify-start"
                       >
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 w-full">
                           <Icon className="h-6 w-6 flex-shrink-0" />
-                          <div>
-                            <div className="font-semibold">{support.name}</div>
-                            <div className="text-sm opacity-70">{support.description}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold break-words">{support.name}</div>
+                            <div className="text-sm opacity-70 break-words">{support.description}</div>
                           </div>
                         </div>
                       </Button>
