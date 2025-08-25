@@ -82,21 +82,21 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
   const generateWhatsAppMessage = () => {
     const deviceName = devices.find(d => d.id === supportData.device)?.name || '';
     const supportTypeName = supportTypes.find(s => s.id === supportData.supportType)?.name || '';
-    
-    const message = `🎯 *SOLICITAÇÃO DE SUPORTE KICK TV*
 
-👤 *Tipo de Cliente:* ${supportData.customerType === 'existing' ? 'Cliente Existente' : 'Novo Cliente'}
-📱 *Dispositivo:* ${deviceName}
-⚙️ *IPTV Instalado:* ${supportData.hasInstalled === 'installed' ? 'Sim' : 'Não'}
-🆘 *Tipo de Suporte:* ${supportTypeName}
+    const message = `*SOLICITAÇÃO DE SUPORTE KICK TV*
 
-${supportData.description ? `📝 *Descrição do Problema:*\n${supportData.description}` : ''}
+*Tipo de Cliente:* ${supportData.customerType === 'existing' ? 'Cliente Existente' : 'Novo Cliente'}
+*Dispositivo:* ${deviceName}
+*IPTV Instalado:* ${supportData.hasInstalled === 'installed' ? 'Sim' : 'Não'}
+*Tipo de Suporte:* ${supportTypeName}
+
+${supportData.description ? `*Descrição do Problema:*\n${supportData.description}` : ''}
 
 ---
-🚀 *Equipe de Suporte Kick TV*`;
+*Equipe de Suporte Kick TV*`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/5511956076123?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
 
