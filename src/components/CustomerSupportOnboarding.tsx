@@ -323,7 +323,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-8"
+        className="text-center mb-8 relative"
       >
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Central de <span className="text-kick-green">Suporte</span>
@@ -331,6 +331,18 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
         <p className="text-gray-300 text-lg">
           Estamos aqui para ajudar você a resolver qualquer problema
         </p>
+
+        {/* Emergency Reset Button - Only show if user is stuck in later steps */}
+        {currentStep > 2 && (
+          <Button
+            onClick={resetToStart}
+            variant="ghost"
+            size="sm"
+            className="absolute top-0 right-0 text-gray-400 hover:text-white text-xs"
+          >
+            ↻ Recomeçar
+          </Button>
+        )}
       </motion.div>
 
       <AnimatePresence mode="wait">
