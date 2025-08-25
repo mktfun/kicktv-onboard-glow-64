@@ -211,7 +211,19 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
   // Run validation when plan changes to ensure device compatibility
   useEffect(() => {
     if (supportData.plan && supportData.device) {
-      const availableDevices = getAvailableDevices();
+      // Get available devices for the current plan
+      let availableDevices = allDevices;
+      if (supportData.plan === 'krator' || supportData.plan === 'nexus') {
+        availableDevices = allDevices.filter(device => device.id !== 'iphone' && device.id !== 'mac');
+      } else if (supportData.plan === 'whot') {
+        availableDevices = allDevices.filter(device =>
+          device.id === 'windows' ||
+          device.id === 'mac' ||
+          device.id === 'android' ||
+          device.id === 'iphone'
+        );
+      }
+
       const isDeviceCompatible = availableDevices.some(d => d.id === supportData.device);
       if (!isDeviceCompatible) {
         setSupportData(prev => ({
@@ -221,12 +233,11 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
           supportType: null,
           description: ''
         }));
-        if (currentStep > 3) {
-          safeNavigateToStep(3);
-        }
+        // Navigate back to device selection if we're past it
+        safeNavigateToStep(3);
       }
     }
-  }, [supportData.plan]); // Only run when plan changes
+  }, [supportData.plan, supportData.device]); // Run when plan or device changes
 
   const supportTypes = [
     { id: 'app-problem' as SupportType, name: 'Problema no aplicativo', icon: Bug, description: 'App travando ou fechando' },
