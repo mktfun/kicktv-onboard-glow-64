@@ -10,7 +10,7 @@ interface CustomerSupportOnboardingProps {
 }
 
 type CustomerType = 'new' | 'existing';
-type Plan = 'starter' | 'premium' | 'krator' | 'nexus';
+type Plan = 'essencial' | 'nexus' | 'krator' | 'whot';
 type Device = 'tv' | 'android' | 'iphone' | 'mac' | 'windows' | 'chromecast' | 'android-tv' | 'tv-box';
 type InstallationStatus = 'installed' | 'not-installed';
 type SupportType = 'app-problem' | 'connection-issue' | 'bug' | 'login-issue' | 'missing-content' | 'other';
@@ -36,10 +36,10 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
   });
 
   const plans = [
-    { id: 'starter' as Plan, name: 'Starter', description: 'Plano básico com canais essenciais' },
-    { id: 'premium' as Plan, name: 'Premium', description: 'Plano completo com todos os canais' },
-    { id: 'krator' as Plan, name: 'Krator+', description: 'Plano especializado (não disponível para iPhone/Mac)' },
-    { id: 'nexus' as Plan, name: 'Nexus', description: 'Plano avançado (não disponível para iPhone/Mac)' }
+    { id: 'essencial' as Plan, name: 'Essencial Iptv + p2p', description: 'Plano básico com canais essenciais' },
+    { id: 'nexus' as Plan, name: 'Nexus', description: 'Plano avançado (não disponível para iPhone/Mac)' },
+    { id: 'krator' as Plan, name: 'krator +', description: 'Plano especializado (não disponível para iPhone/Mac)' },
+    { id: 'whot' as Plan, name: 'whot', description: 'Funciona apenas no navegador' }
   ];
 
   const allDevices = [
@@ -57,6 +57,15 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
   const getAvailableDevices = () => {
     if (supportData.plan === 'krator' || supportData.plan === 'nexus') {
       return allDevices.filter(device => device.id !== 'iphone' && device.id !== 'mac');
+    }
+    if (supportData.plan === 'whot') {
+      // whot only works in browser, so only allow devices that can run browsers
+      return allDevices.filter(device =>
+        device.id === 'windows' ||
+        device.id === 'mac' ||
+        device.id === 'android' ||
+        device.id === 'iphone'
+      );
     }
     return allDevices;
   };
@@ -235,6 +244,11 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                   {(supportData.plan === 'krator' || supportData.plan === 'nexus') && (
                     <p className="text-sm text-yellow-400 mt-2">
                       * iPhone e Mac não são compatíveis com o plano {plans.find(p => p.id === supportData.plan)?.name}
+                    </p>
+                  )}
+                  {supportData.plan === 'whot' && (
+                    <p className="text-sm text-blue-400 mt-2">
+                      * O plano whot funciona apenas no navegador
                     </p>
                   )}
                 </CardTitle>

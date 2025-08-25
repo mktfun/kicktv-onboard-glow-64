@@ -12,122 +12,80 @@ export interface TutorialsByPlan {
 }
 
 export const tutorialConfigs: TutorialsByPlan = {
-  starter: {
+  essencial: {
     tv: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em Smart TV'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em Smart TV'
     },
     android: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em Android'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em Android'
     },
     iphone: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em iPhone'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em iPhone'
     },
     mac: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em Mac'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em Mac'
     },
     windows: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em Windows'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em Windows'
     },
     chromecast: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em Chromecast'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em Chromecast'
     },
     'android-tv': {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em Android TV'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em Android TV'
     },
     'tv-box': {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Starter em TV Box'
-    }
-  },
-  premium: {
-    tv: {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em Smart TV'
-    },
-    android: {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em Android'
-    },
-    iphone: {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em iPhone'
-    },
-    mac: {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em Mac'
-    },
-    windows: {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em Windows'
-    },
-    chromecast: {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em Chromecast'
-    },
-    'android-tv': {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em Android TV'
-    },
-    'tv-box': {
-      videoUrl: '', // Add your video URL here
-      downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Premium em TV Box'
+      additionalInfo: 'Tutorial para instalação do Essencial Iptv + p2p em TV Box'
     }
   },
   krator: {
     tv: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Krator+ em Smart TV'
+      additionalInfo: 'Tutorial para instalação do krator + em Smart TV'
     },
     android: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Krator+ em Android'
+      additionalInfo: 'Tutorial para instalação do krator + em Android'
     },
     windows: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Krator+ em Windows'
+      additionalInfo: 'Tutorial para instalação do krator + em Windows'
     },
     chromecast: {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Krator+ em Chromecast'
+      additionalInfo: 'Tutorial para instalação do krator + em Chromecast'
     },
     'android-tv': {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Krator+ em Android TV'
+      additionalInfo: 'Tutorial para instalação do krator + em Android TV'
     },
     'tv-box': {
       videoUrl: '', // Add your video URL here
       downloadUrl: '', // Add your download URL here
-      additionalInfo: 'Tutorial para instalação do Krator+ em TV Box'
+      additionalInfo: 'Tutorial para instalação do krator + em TV Box'
     }
-    // Note: iPhone and Mac are not available for Krator+ plan
+    // Note: iPhone and Mac are not available for krator + plan
   },
   nexus: {
     tv: {
@@ -161,6 +119,29 @@ export const tutorialConfigs: TutorialsByPlan = {
       additionalInfo: 'Tutorial para instalação do Nexus em TV Box'
     }
     // Note: iPhone and Mac are not available for Nexus plan
+  },
+  whot: {
+    windows: {
+      videoUrl: '', // Add your video URL here
+      downloadUrl: '', // Add your download URL here
+      additionalInfo: 'Tutorial para acesso ao whot no navegador Windows'
+    },
+    mac: {
+      videoUrl: '', // Add your video URL here
+      downloadUrl: '', // Add your download URL here
+      additionalInfo: 'Tutorial para acesso ao whot no navegador Mac'
+    },
+    android: {
+      videoUrl: '', // Add your video URL here
+      downloadUrl: '', // Add your download URL here
+      additionalInfo: 'Tutorial para acesso ao whot no navegador Android'
+    },
+    iphone: {
+      videoUrl: '', // Add your video URL here
+      downloadUrl: '', // Add your download URL here
+      additionalInfo: 'Tutorial para acesso ao whot no navegador iPhone'
+    }
+    // Note: whot only works in browser, no app installation needed
   }
 };
 
