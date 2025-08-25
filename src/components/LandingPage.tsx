@@ -270,6 +270,53 @@ export const LandingPage = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Modal Tela-Cheia para o Suporte */}
+      <AnimatePresence>
+        {showSupport && (
+          <motion.div
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(48px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed inset-0 z-50 bg-black/80"
+          >
+
+            {/* Modal Content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative z-10 h-full flex flex-col"
+            >
+              {/* Close Button */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: 0.4 }}
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10"
+              >
+                <Button
+                  onClick={handleBackToLanding}
+                  variant="ghost"
+                  size="icon"
+                  className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 text-white transition-all duration-200"
+                >
+                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
+                </Button>
+              </motion.div>
+
+              {/* Support Content Container */}
+              <div className="flex-1 overflow-y-auto">
+                <div className="container mx-auto max-w-6xl px-4 py-8 sm:py-12 lg:py-16 pb-16 sm:pb-24">
+                  <CustomerSupportOnboarding onBackToLanding={handleBackToLanding} />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 };
