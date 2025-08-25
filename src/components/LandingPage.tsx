@@ -130,6 +130,7 @@ export const LandingPage = () => {
   const handleBackToLanding = () => {
     setShowFunnel(false);
     setShowFreeTrial(false);
+    setShowSupport(false);
   };
 
   return (
@@ -144,7 +145,7 @@ export const LandingPage = () => {
         {/* Indicador de debug temporário */}
         {process.env.NODE_ENV === 'development' && (
           <div className="fixed bottom-4 right-4 z-[60] bg-black/80 text-white px-3 py-1 rounded text-xs sm:top-4 sm:bottom-auto">
-            Funnel: {showFunnel ? 'ABERTO' : 'fechado'} | Trial: {showFreeTrial ? 'ABERTO' : 'fechado'}
+            Funnel: {showFunnel ? 'ABERTO' : 'fechado'} | Trial: {showFreeTrial ? 'ABERTO' : 'fechado'} | Support: {showSupport ? 'ABERTO' : 'fechado'}
           </div>
         )}
 
