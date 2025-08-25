@@ -8,7 +8,7 @@ interface HeroSectionProps {
   onStartSupport: (event?: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-export const HeroSection = ({ onStartFunnel, onStartFreeTrial }: HeroSectionProps) => {
+export const HeroSection = ({ onStartFunnel, onStartFreeTrial, onStartSupport }: HeroSectionProps) => {
   return (
     <section className="min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden py-8 sm:py-12 lg:py-0">{/* Fundo agora é global - AnimatedBackground foi movido para LandingPage */}
 
@@ -76,6 +76,26 @@ export const HeroSection = ({ onStartFunnel, onStartFreeTrial }: HeroSectionProp
               style={{ touchAction: 'manipulation' }}
             >
               TESTE POR R$ 5
+            </motion.button>
+
+            <motion.button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onStartSupport(e);
+              }}
+              onMouseDown={(e) => {
+                if (e.button !== 0) return;
+              }}
+              onTouchStart={(e) => {
+                e.currentTarget.style.touchAction = 'manipulation';
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-block bg-transparent border-2 border-white/30 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transform hover:scale-105 transition-all duration-200 hover:bg-white hover:text-black touch-manipulation select-none"
+              style={{ touchAction: 'manipulation' }}
+            >
+              JÁ SOU CLIENTE
             </motion.button>
           </div>
         </motion.div>
