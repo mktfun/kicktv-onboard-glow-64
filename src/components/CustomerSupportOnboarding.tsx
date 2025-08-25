@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
@@ -34,6 +34,87 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
     supportType: null,
     description: ''
   });
+
+  // Reset state when going back to previous steps that affect later choices
+  const resetDependentState = (fromStep: number) => {
+    setSupportData(prev => {
+      const newData = { ...prev };
+
+      // If going back to plan selection, reset device and everything after
+      if (fromStep <= 2) {
+        newData.plan = null;
+        newData.device = null;
+        newData.hasInstalled = null;
+        newData.supportType = null;
+        newData.description = '';
+      }
+      // If going back to device selection, reset installation status and everything after
+      else if (fromStep <= 3) {
+        newData.device = null;
+        newData.hasInstalled = null;
+        newData.supportType = null;
+        newData.description = '';
+      }
+      // If going back to installation status, reset support type and description
+      else if (fromStep <= 4) {
+        newData.hasInstalled = null;
+        newData.supportType = null;
+        newData.description = '';
+      }
+      // If going back to support type selection, reset description
+      else if (fromStep <= 5) {
+        newData.supportType = null;
+        newData.description = '';
+      }
+
+      return newData;
+    });
+  };
+
+  // Get the correct step flow based on current state
+  const getStepFlow = () => {
+    const flow = [1, 2, 3, 4]; // customer type, plan, device, installation status
+
+    if (supportData.hasInstalled === 'installed') {
+      flow.push(5, 7); // support type selection, final step
+    } else if (supportData.hasInstalled === 'not-installed') {
+      flow.push(6); // tutorial step
+    } else if (currentStep >= 5) {
+      // If we're at step 5 or beyond but installation status is not set,
+      // we need to determine the flow
+      flow.push(5, 7); // default to support flow
+    }
+
+    return flow;
+  };
+
+  // Smart navigation that respects the flow
+  const navigateToStep = (targetStep: number, resetState = true) => {
+    if (resetState && targetStep < currentStep) {
+      resetDependentState(targetStep);
+    }
+    setCurrentStep(targetStep);
+  };
+
+  // Get previous step in the flow
+  const getPreviousStep = () => {
+    const flow = getStepFlow();
+    const currentIndex = flow.indexOf(currentStep);
+    if (currentIndex > 0) {
+      return flow[currentIndex - 1];
+    }
+    return 1;
+  };
+
+  // Get total steps for display
+  const getTotalSteps = () => {
+    if (supportData.hasInstalled === 'not-installed') {
+      return 6;
+    } else if (supportData.hasInstalled === 'installed') {
+      return 7;
+    }
+    return 7; // default
+  };
 
   const plans = [
     { id: 'essencial' as Plan, name: 'Essencial Iptv + p2p', description: 'Plano básico com canais essenciais' },
@@ -72,6 +153,32 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
 
   const devices = getAvailableDevices();
 
+  // Validate current state and fix inconsistencies
+  const validateAndFixState = () => {
+    // If we have a plan selected but device is not compatible, reset device
+    if (supportData.plan && supportData.device) {
+      const availableDevices = getAvailableDevices();
+      const isDeviceCompatible = availableDevices.some(d => d.id === supportData.device);
+      if (!isDeviceCompatible) {
+        setSupportData(prev => ({
+          ...prev,
+          device: null,
+          hasInstalled: null,
+          supportType: null,
+          description: ''
+        }));
+        if (currentStep > 3) {
+          setCurrentStep(3);
+        }
+      }
+    }
+  };
+
+  // Run validation when plan or current step changes
+  useEffect(() => {
+    validateAndFixState();
+  }, [supportData.plan, currentStep]);
+
   const supportTypes = [
     { id: 'app-problem' as SupportType, name: 'Problema no aplicativo', icon: Bug, description: 'App travando ou fechando' },
     { id: 'connection-issue' as SupportType, name: 'Problema de conexão', icon: Wifi, description: 'Buffering ou não carrega' },
@@ -83,31 +190,49 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
 
   const handleCustomerTypeSelect = (type: CustomerType) => {
     setSupportData(prev => ({ ...prev, customerType: type }));
-    setCurrentStep(2); // Go to plan selection
+    navigateToStep(2, false); // Go to plan selection
   };
 
   const handlePlanSelect = (plan: Plan) => {
-    setSupportData(prev => ({ ...prev, plan, device: null })); // Reset device when plan changes
-    setCurrentStep(3); // Go to device selection
+    setSupportData(prev => ({
+      ...prev,
+      plan,
+      device: null, // Reset device when plan changes
+      hasInstalled: null, // Reset installation status
+      supportType: null, // Reset support type
+      description: '' // Reset description
+    }));
+    navigateToStep(3, false); // Go to device selection, don't reset state as we just did it
   };
 
   const handleDeviceSelect = (device: Device) => {
-    setSupportData(prev => ({ ...prev, device }));
-    setCurrentStep(4); // Go to installation status
+    setSupportData(prev => ({
+      ...prev,
+      device,
+      hasInstalled: null, // Reset installation status when device changes
+      supportType: null, // Reset support type
+      description: '' // Reset description
+    }));
+    navigateToStep(4, false); // Go to installation status
   };
 
   const handleInstallationStatus = (status: InstallationStatus) => {
-    setSupportData(prev => ({ ...prev, hasInstalled: status }));
+    setSupportData(prev => ({
+      ...prev,
+      hasInstalled: status,
+      supportType: null, // Reset support type when installation status changes
+      description: '' // Reset description
+    }));
     if (status === 'installed') {
-      setCurrentStep(5); // Go to support type selection
+      navigateToStep(5, false); // Go to support type selection
     } else {
-      setCurrentStep(6); // Go to tutorial step
+      navigateToStep(6, false); // Go to tutorial step
     }
   };
 
   const handleSupportTypeSelect = (type: SupportType) => {
     setSupportData(prev => ({ ...prev, supportType: type }));
-    setCurrentStep(7); // Final step
+    navigateToStep(7, false); // Final step
   };
 
   const generateWhatsAppMessage = () => {
@@ -489,7 +614,10 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
 
                       <div className="text-center">
                         <Button
-                          onClick={() => setCurrentStep(5)}
+                          onClick={() => {
+                            setSupportData(prev => ({ ...prev, hasInstalled: 'installed' }));
+                            navigateToStep(5, false);
+                          }}
                           variant="outline"
                           className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
                         >
@@ -549,7 +677,8 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
         <Button
           onClick={() => {
             if (currentStep > 1) {
-              setCurrentStep(currentStep - 1);
+              const previousStep = getPreviousStep();
+              navigateToStep(previousStep);
             } else {
               onBackToLanding();
             }
@@ -559,9 +688,9 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
         >
           Voltar
         </Button>
-        
+
         <div className="text-white text-sm">
-          Passo {currentStep} de {supportData.hasInstalled === 'not-installed' ? '6' : '7'}
+          Passo {currentStep} de {getTotalSteps()}
         </div>
       </div>
     </div>
