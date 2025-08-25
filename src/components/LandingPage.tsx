@@ -18,7 +18,7 @@ export const LandingPage = () => {
 
   // Fix 2: Controlar scroll do body quando modal aberto
   useEffect(() => {
-    if (showFunnel || showFreeTrial) {
+    if (showFunnel || showFreeTrial || showSupport) {
       document.body.classList.add('modal-open');
     } else {
       document.body.classList.remove('modal-open');
@@ -28,7 +28,7 @@ export const LandingPage = () => {
     return () => {
       document.body.classList.remove('modal-open');
     };
-  }, [showFunnel, showFreeTrial]);
+  }, [showFunnel, showFreeTrial, showSupport]);
 
   const handleStartFunnel = (event?: React.MouseEvent | React.KeyboardEvent) => {
     const now = Date.now();
@@ -93,6 +93,38 @@ export const LandingPage = () => {
     });
 
     setShowFreeTrial(true);
+  };
+
+  const handleStartSupport = (event?: React.MouseEvent | React.KeyboardEvent) => {
+    const now = Date.now();
+
+    // Proteção contra eventos não confiáveis ou automáticos
+    if (event && !event.isTrusted) {
+      console.warn('Tentativa de abertura do suporte por evento não confiável bloqueada');
+      return;
+    }
+
+    // Proteção contra interações muito rápidas (possíveis toques acidentais)
+    if (now - lastInteractionRef.current < 500) {
+      console.warn('Interação muito rápida detectada, possível toque acidental');
+      return;
+    }
+
+    // Verificar se já está aberto para evitar múltiplas aberturas
+    if (showSupport) {
+      console.warn('Suporte já está aberto');
+      return;
+    }
+
+    lastInteractionRef.current = now;
+
+    console.log('Suporte aberto por interação do usuário', {
+      eventType: event?.type,
+      timestamp: new Date().toISOString(),
+      isTrusted: event?.isTrusted
+    });
+
+    setShowSupport(true);
   };
 
   const handleBackToLanding = () => {
