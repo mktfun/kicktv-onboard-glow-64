@@ -252,7 +252,7 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4 md:grid-cols-4 sm:grid-cols-2">
+                <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
                   {devices.map((device) => {
                     const Icon = device.icon;
                     return (
@@ -260,12 +260,10 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                         key={device.id}
                         onClick={() => handleDeviceSelect(device.id)}
                         variant="outline"
-                        className="h-20 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white"
+                        className="h-20 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white flex flex-col items-center justify-center"
                       >
-                        <div className="text-center">
-                          <Icon className="h-6 w-6 mx-auto mb-2" />
-                          <div className="text-sm">{device.name}</div>
-                        </div>
+                        <Icon className="h-6 w-6 mb-2" />
+                        <div className="text-sm text-center">{device.name}</div>
                       </Button>
                     );
                   })}
