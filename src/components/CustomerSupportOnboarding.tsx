@@ -153,9 +153,8 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
 
   const devices = getAvailableDevices();
 
-  // Validate current state and fix inconsistencies
-  const validateAndFixState = () => {
-    // If we have a plan selected but device is not compatible, reset device
+  // Run validation when plan changes to ensure device compatibility
+  useEffect(() => {
     if (supportData.plan && supportData.device) {
       const availableDevices = getAvailableDevices();
       const isDeviceCompatible = availableDevices.some(d => d.id === supportData.device);
@@ -172,12 +171,7 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
         }
       }
     }
-  };
-
-  // Run validation when plan or current step changes
-  useEffect(() => {
-    validateAndFixState();
-  }, [supportData.plan, currentStep]);
+  }, [supportData.plan]); // Only run when plan changes
 
   const supportTypes = [
     { id: 'app-problem' as SupportType, name: 'Problema no aplicativo', icon: Bug, description: 'App travando ou fechando' },
