@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { CheckCircle, Monitor, Smartphone, Tv, Laptop, Cast, HelpCircle, Bug, Wifi, AlertCircle, PlayCircle, MessageCircle } from "lucide-react";
+import { CheckCircle, Monitor, Smartphone, Tv, Laptop, Cast, HelpCircle, Bug, Wifi, AlertCircle, PlayCircle, MessageCircle, Download, ExternalLink } from "lucide-react";
+import { getTutorialConfig } from "../config/tutorials";
 
 interface CustomerSupportOnboardingProps {
   onBackToLanding: () => void;
@@ -363,37 +364,85 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-6">
-                <div className="text-gray-300">
-                  <p className="mb-4">
-                    Vamos te ajudar a instalar o IPTV {plans.find(p => p.id === supportData.plan)?.name} no seu {allDevices.find(d => d.id === supportData.device)?.name}!
-                  </p>
-                  <div className="bg-white/10 rounded-lg p-6 mb-6">
-                    <PlayCircle className="h-16 w-16 mx-auto mb-4 text-kick-green" />
-                    <p className="text-lg font-semibold mb-2">Vídeo Tutorial</p>
-                    <p className="text-sm opacity-70">
-                      Assista ao passo a passo completo para instalação do plano {plans.find(p => p.id === supportData.plan)?.name} no seu dispositivo
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <Button
-                    onClick={() => {
-                      // Here you would open the tutorial video based on plan and device
-                      console.log('Opening tutorial for plan:', supportData.plan, 'device:', supportData.device);
-                    }}
-                    className="w-full bg-kick-green text-black hover:bg-kick-green-dark"
-                  >
-                    <PlayCircle className="h-5 w-5 mr-2" />
-                    Assistir Tutorial
-                  </Button>
-                  <Button
-                    onClick={() => setCurrentStep(5)}
-                    variant="outline"
-                    className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
-                  >
-                    Já instalei, preciso de suporte
-                  </Button>
-                </div>
+                {(() => {
+                  const tutorialConfig = getTutorialConfig(supportData.plan!, supportData.device!);
+                  const planName = plans.find(p => p.id === supportData.plan)?.name;
+                  const deviceName = allDevices.find(d => d.id === supportData.device)?.name;
+
+                  return (
+                    <div className="text-gray-300">
+                      <p className="mb-4">
+                        Vamos te ajudar a instalar o IPTV {planName} no seu {deviceName}!
+                      </p>
+
+                      {tutorialConfig ? (
+                        <div className="space-y-4">
+                          {tutorialConfig.videoUrl && (
+                            <div className="bg-white/10 rounded-lg p-6">
+                              <PlayCircle className="h-16 w-16 mx-auto mb-4 text-kick-green" />
+                              <p className="text-lg font-semibold mb-2">Vídeo Tutorial</p>
+                              <p className="text-sm opacity-70 mb-4">
+                                {tutorialConfig.additionalInfo}
+                              </p>
+                              <Button
+                                onClick={() => {
+                                  if (tutorialConfig.videoUrl) {
+                                    window.open(tutorialConfig.videoUrl, '_blank');
+                                  }
+                                }}
+                                className="w-full bg-kick-green text-black hover:bg-kick-green-dark"
+                              >
+                                <PlayCircle className="h-5 w-5 mr-2" />
+                                Assistir Tutorial
+                              </Button>
+                            </div>
+                          )}
+
+                          {tutorialConfig.downloadUrl && (
+                            <div className="bg-white/10 rounded-lg p-6">
+                              <Download className="h-16 w-16 mx-auto mb-4 text-blue-400" />
+                              <p className="text-lg font-semibold mb-2">Download do App</p>
+                              <p className="text-sm opacity-70 mb-4">
+                                Baixe o aplicativo para {deviceName}
+                              </p>
+                              <Button
+                                onClick={() => {
+                                  if (tutorialConfig.downloadUrl) {
+                                    window.open(tutorialConfig.downloadUrl, '_blank');
+                                  }
+                                }}
+                                variant="outline"
+                                className="w-full bg-blue-500/20 border-blue-400 text-blue-400 hover:bg-blue-500 hover:text-white"
+                              >
+                                <Download className="h-5 w-5 mr-2" />
+                                Baixar App
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="bg-yellow-500/20 rounded-lg p-6">
+                          <AlertCircle className="h-16 w-16 mx-auto mb-4 text-yellow-400" />
+                          <p className="text-lg font-semibold mb-2">Tutorial em Preparação</p>
+                          <p className="text-sm opacity-70">
+                            O tutorial para {planName} em {deviceName} ainda está sendo preparado.
+                            Entre em contato conosco para receber suporte personalizado.
+                          </p>
+                        </div>
+                      )}
+
+                      <div className="mt-6">
+                        <Button
+                          onClick={() => setCurrentStep(5)}
+                          variant="outline"
+                          className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
+                        >
+                          Já instalei, preciso de suporte
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })()}
               </CardContent>
             </Card>
           </motion.div>
