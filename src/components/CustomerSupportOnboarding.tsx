@@ -93,7 +93,7 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
     if (resetState && targetStep < currentStep) {
       resetDependentState(targetStep);
     }
-    setCurrentStep(targetStep);
+    safeNavigateToStep(targetStep);
   };
 
   // Get previous step in the flow
@@ -114,6 +114,61 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
       return 7;
     }
     return 7; // default
+  };
+
+  // Reset all data and go back to start (emergency reset)
+  const resetToStart = () => {
+    setSupportData({
+      customerType: null,
+      plan: null,
+      device: null,
+      hasInstalled: null,
+      supportType: null,
+      description: ''
+    });
+    setCurrentStep(1);
+  };
+
+  // Safe navigation with error handling
+  const safeNavigateToStep = (targetStep: number) => {
+    try {
+      // Validate the target step is within bounds
+      if (targetStep < 1 || targetStep > 7) {
+        console.warn('Invalid step:', targetStep);
+        return;
+      }
+
+      // Ensure we have required data for the target step
+      if (targetStep >= 2 && !supportData.customerType) {
+        setCurrentStep(1);
+        return;
+      }
+      if (targetStep >= 3 && !supportData.plan) {
+        setCurrentStep(2);
+        return;
+      }
+      if (targetStep >= 4 && !supportData.device) {
+        setCurrentStep(3);
+        return;
+      }
+      if (targetStep >= 5 && !supportData.hasInstalled) {
+        setCurrentStep(4);
+        return;
+      }
+      if (targetStep === 6 && supportData.hasInstalled !== 'not-installed') {
+        setCurrentStep(4);
+        return;
+      }
+      if (targetStep === 7 && supportData.hasInstalled !== 'installed') {
+        setCurrentStep(4);
+        return;
+      }
+
+      setCurrentStep(targetStep);
+    } catch (error) {
+      console.error('Navigation error:', error);
+      resetToStart();
+    }
   };
 
   const plans = [
@@ -167,7 +222,7 @@ export const CustomerSupportOnboarding = ({ onBackToLanding }: CustomerSupportOn
           description: ''
         }));
         if (currentStep > 3) {
-          setCurrentStep(3);
+          safeNavigateToStep(3);
         }
       }
     }
@@ -670,11 +725,26 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
       <div className="flex justify-between items-center mt-8">
         <Button
           onClick={() => {
-            if (currentStep > 1) {
-              const previousStep = getPreviousStep();
-              navigateToStep(previousStep);
-            } else {
-              onBackToLanding();
+            try {
+              if (currentStep > 1) {
+                const previousStep = getPreviousStep();
+                if (previousStep && previousStep < currentStep) {
+                  navigateToStep(previousStep);
+                } else {
+                  // Fallback: go to previous step by number
+                  navigateToStep(currentStep - 1);
+                }
+              } else {
+                onBackToLanding();
+              }
+            } catch (error) {
+              console.error('Back navigation error:', error);
+              // Emergency fallback
+              if (currentStep > 1) {
+                navigateToStep(currentStep - 1);
+              } else {
+                onBackToLanding();
+              }
             }
           }}
           variant="outline"
