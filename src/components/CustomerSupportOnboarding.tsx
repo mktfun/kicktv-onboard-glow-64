@@ -205,18 +205,16 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
               </CardHeader>
               <CardContent className="space-y-4">
                 {plans.map((plan) => (
-                  <Button
+                  <button
                     key={plan.id}
                     onClick={() => handlePlanSelect(plan.id)}
-                    variant="outline"
-                    className="w-full h-auto min-h-[80px] bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4 flex items-start justify-start"
-                    asChild={false}
+                    className="w-full h-auto min-h-[80px] bg-white/5 border border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4 rounded-md transition-colors overflow-hidden"
                   >
-                    <div className="w-full text-left">
-                      <div className="font-semibold text-base mb-1 break-words">{plan.name}</div>
-                      <div className="text-sm opacity-70 leading-relaxed break-words">{plan.description}</div>
+                    <div className="w-full max-w-full overflow-hidden">
+                      <div className="font-semibold text-base mb-1 break-words line-clamp-2">{plan.name}</div>
+                      <div className="text-sm opacity-70 leading-relaxed break-words line-clamp-3">{plan.description}</div>
                     </div>
-                  </Button>
+                  </button>
                 ))}
               </CardContent>
             </Card>
