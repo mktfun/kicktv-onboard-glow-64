@@ -6,12 +6,14 @@ import { BenefitsSection } from "./BenefitsSection";
 import { CompatibilitySection } from "./CompatibilitySection";
 import { KickTVOnboarding } from "./KickTVOnboarding";
 import { FreeTrialOnboarding } from "./FreeTrialOnboarding";
+import { CustomerSupportOnboarding } from "./CustomerSupportOnboarding";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { Button } from "./ui/button";
 
 export const LandingPage = () => {
   const [showFunnel, setShowFunnel] = useState(false);
   const [showFreeTrial, setShowFreeTrial] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
   const lastInteractionRef = useRef<number>(0);
 
   // Fix 2: Controlar scroll do body quando modal aberto
