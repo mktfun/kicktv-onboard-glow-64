@@ -290,22 +290,18 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                   <Button
                     onClick={() => handleInstallationStatus('installed')}
                     variant="outline"
-                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white"
+                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white flex flex-col items-center justify-center"
                   >
-                    <div className="text-center">
-                      <CheckCircle className="h-6 w-6 mx-auto mb-2" />
-                      <div>Sim, já está instalado</div>
-                    </div>
+                    <CheckCircle className="h-6 w-6 mb-2" />
+                    <div className="text-sm text-center">Sim, já está instalado</div>
                   </Button>
                   <Button
                     onClick={() => handleInstallationStatus('not-installed')}
                     variant="outline"
-                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white"
+                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white flex flex-col items-center justify-center"
                   >
-                    <div className="text-center">
-                      <HelpCircle className="h-6 w-6 mx-auto mb-2" />
-                      <div>Não, preciso instalar</div>
-                    </div>
+                    <HelpCircle className="h-6 w-6 mb-2" />
+                    <div className="text-sm text-center">Não, preciso instalar</div>
                   </Button>
                 </div>
               </CardContent>
