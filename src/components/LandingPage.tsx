@@ -152,15 +152,16 @@ export const LandingPage = () => {
         {/* Landing Page Content with fade-out effect when funnel is open */}
         <motion.div
           animate={{
-            opacity: (showFunnel || showFreeTrial) ? 0 : 1,
-            scale: (showFunnel || showFreeTrial) ? 0.95 : 1
+            opacity: (showFunnel || showFreeTrial || showSupport) ? 0 : 1,
+            scale: (showFunnel || showFreeTrial || showSupport) ? 0.95 : 1
           }}
           transition={{ duration: 0.3 }}
-          className={(showFunnel || showFreeTrial) ? "pointer-events-none" : ""}
+          className={(showFunnel || showFreeTrial || showSupport) ? "pointer-events-none" : ""}
         >
           <HeroSection
             onStartFunnel={handleStartFunnel}
             onStartFreeTrial={handleStartFreeTrial}
+            onStartSupport={handleStartSupport}
           />
           <BenefitsSection />
           <CompatibilitySection />
