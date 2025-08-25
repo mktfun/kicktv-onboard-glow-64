@@ -169,22 +169,18 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                   <Button
                     onClick={() => handleCustomerTypeSelect('new')}
                     variant="outline"
-                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white"
+                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white flex flex-col items-center justify-center"
                   >
-                    <div className="text-center">
-                      <HelpCircle className="h-6 w-6 mx-auto mb-2" />
-                      <div>Sou novo cliente</div>
-                    </div>
+                    <HelpCircle className="h-6 w-6 mb-2" />
+                    <div className="text-sm">Sou novo cliente</div>
                   </Button>
                   <Button
                     onClick={() => handleCustomerTypeSelect('existing')}
                     variant="outline"
-                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white"
+                    className="h-16 bg-white/5 border-white/10 hover:bg-kick-green hover:text-black text-white flex flex-col items-center justify-center"
                   >
-                    <div className="text-center">
-                      <CheckCircle className="h-6 w-6 mx-auto mb-2" />
-                      <div>Já sou cliente</div>
-                    </div>
+                    <CheckCircle className="h-6 w-6 mb-2" />
+                    <div className="text-sm">Já sou cliente</div>
                   </Button>
                 </div>
               </CardContent>
