@@ -209,10 +209,31 @@ ${supportData.description ? `*Descrição do Problema:*\n${supportData.descripti
                     key={plan.id}
                     onClick={() => handlePlanSelect(plan.id)}
                     className="w-full h-auto min-h-[80px] bg-white/5 border border-white/10 hover:bg-kick-green hover:text-black text-white text-left p-4 rounded-md transition-colors overflow-hidden"
+                    style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}
                   >
                     <div className="w-full max-w-full overflow-hidden">
-                      <div className="font-semibold text-base mb-1 break-words line-clamp-2">{plan.name}</div>
-                      <div className="text-sm opacity-70 leading-relaxed break-words line-clamp-3">{plan.description}</div>
+                      <div
+                        className="font-semibold text-base mb-1"
+                        style={{
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                          hyphens: 'auto',
+                          maxWidth: '100%'
+                        }}
+                      >
+                        {plan.name}
+                      </div>
+                      <div
+                        className="text-sm opacity-70 leading-relaxed"
+                        style={{
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                          hyphens: 'auto',
+                          maxWidth: '100%'
+                        }}
+                      >
+                        {plan.description}
+                      </div>
                     </div>
                   </button>
                 ))}
