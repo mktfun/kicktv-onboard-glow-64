@@ -5,6 +5,7 @@ import { KickTVInterface } from "./KickTVInterface";
 interface HeroSectionProps {
   onStartFunnel: (event?: React.MouseEvent | React.KeyboardEvent) => void;
   onStartFreeTrial: (event?: React.MouseEvent | React.KeyboardEvent) => void;
+  onStartSupport: (event?: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 export const HeroSection = ({ onStartFunnel, onStartFreeTrial }: HeroSectionProps) => {
